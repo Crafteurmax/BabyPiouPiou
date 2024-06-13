@@ -7,7 +7,7 @@ public :
 	void run();
 
 private:
-	sf::RenderWindow		mWindow{ sf::VideoMode{640, 480}, "SFML Application", sf::Style::Close };
+	sf::RenderWindow		mWindow{ sf::VideoMode{640, 480}, "BABY", sf::Style::Close };
 	static const sf::Time	TimePerFrame;
 	bool _isRunning = false;
 
