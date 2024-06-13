@@ -26,8 +26,3 @@ sf::Vector2f DrawableObject::getPosition() const
 	//TODO IMPLEMENT
 	return sf::Vector2f();
 }
-
-void DrawableObject::update()
-{
-	//TODO IMPLEMENT
-}

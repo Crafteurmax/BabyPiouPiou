@@ -8,7 +8,7 @@ public:
 	~HpLiving() override = default;
 	bool isDead() const;
 	void damage();
-
+	void update() override = 0;
 private:
 	float _health;
 };
