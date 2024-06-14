@@ -4,10 +4,9 @@
 std::string pathToSprite = "./resources/sprites/";
 
 
-DrawableObject::DrawableObject(const sf::Vector2f& size, const std::string& textureName)
+DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName) : _label(label), _size(size)
 {
-	_size = size;
-	_position = { 0,0 };
+	//_position = { 0,0 };
 	//save texture as global because of this : https://www.sfml-dev.org/tutorials/2.6/graphics-sprite.php#the-white-square-problem
 	if (!_texture.loadFromFile(pathToSprite + textureName))
 	{

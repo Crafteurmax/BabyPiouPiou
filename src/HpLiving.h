@@ -4,7 +4,7 @@
 
 class HpLiving : public DrawableObject {
 public: 
-	HpLiving(const sf::Vector2f& size, float startHP, const std::string& texture);
+	HpLiving(const std::string& label, const sf::Vector2f& size, float startHP, const std::string& texture);
 	~HpLiving() override = default;
 	bool isDead() const;
 	void damage(float amount);

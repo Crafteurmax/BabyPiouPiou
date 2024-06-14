@@ -5,7 +5,7 @@
 
 class DrawableObject {
 public:
-	DrawableObject(const sf::Vector2f& size, const std::string& label);
+	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName);
 	virtual ~DrawableObject() = default;
 	void draw(sf::RenderWindow& window) const;
 	void setPosition(sf::Vector2f& pos);

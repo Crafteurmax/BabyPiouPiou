@@ -2,8 +2,8 @@
 
 
 //TODO IMPLEMENT
-HpLiving::HpLiving(const sf::Vector2f& size, float startHP, const std::string& texture) :
-	DrawableObject(size, texture),
+HpLiving::HpLiving(const std::string& label, const sf::Vector2f& size, float startHP, const std::string& texture) :
+	DrawableObject(label, size, texture),
 	_health(startHP)
 {
 }
