@@ -18,6 +18,10 @@ DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& siz
 	_sprite.setPosition(_position);
 }
 
+DrawableObject::DrawableObject(pugi::xml_node& node)
+{
+}
+
 /*
 DrawableObject::~DrawableObject()
 {

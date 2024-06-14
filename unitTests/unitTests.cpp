@@ -109,7 +109,7 @@ TEST(PlayerMovement, test5) {
 }
 
 TEST(HealthSystem, test1) {
-	HpLiving hp({100,100},10);
+	HpLiving hp("test",{100, 100}, 10, "chat.png");
 	ASSERT_FALSE(hp.isDead());
 	ASSERT_EQ(hp.getHealth(), 10);
 	hp.damage(5);
