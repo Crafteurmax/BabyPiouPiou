@@ -8,6 +8,13 @@ HpLiving::HpLiving(const std::string& label, const sf::Vector2f& size, float sta
 {
 }
 
+HpLiving::HpLiving(pugi::xml_node& node) :
+	DrawableObject(node),
+	_health(node.attribute("health").as_float())
+{
+	
+}
+
 //HpLiving::~HpLiving()
 //{
 //}

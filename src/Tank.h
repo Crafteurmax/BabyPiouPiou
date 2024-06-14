@@ -8,7 +8,7 @@ class Tank : public Enemy {
 
 public:
 	explicit Tank(pugi::xml_node& node);
-	void update() override;
+	void update(const sf::Time& elapsedTime) override;
 private:
 
 

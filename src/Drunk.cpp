@@ -1,4 +1,10 @@
 #include "Drunk.h"
+#include "pugixml.hpp"
+
+Drunk::Drunk(pugi::xml_node& node) :
+	Enemy(node)
+{
+}
 
 void Drunk::update(const sf::Time& elapsedTime)
 {

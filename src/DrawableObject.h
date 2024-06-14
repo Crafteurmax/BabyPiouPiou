@@ -2,10 +2,12 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "pugixml.hpp"
 
 class DrawableObject {
 public:
 	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName);
+	DrawableObject(pugi::xml_node& node);
 	virtual ~DrawableObject() = default;
 	void draw(sf::RenderWindow& window) const;
 	void setPosition(sf::Vector2f& pos);

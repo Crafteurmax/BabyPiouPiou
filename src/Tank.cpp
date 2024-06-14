@@ -1,6 +1,7 @@
 #include "Tank.h"
 
-Tank::Tank(pugi::xml_node& node)
+Tank::Tank(pugi::xml_node& node) :
+	Enemy(node)
 {
 	_label = node.attribute("label").as_string();
 	_size = sf::Vector2f(
@@ -10,6 +11,6 @@ Tank::Tank(pugi::xml_node& node)
 
 }
 
-void Tank::update() {
+void Tank::update(const sf::Time& elapsedTime) {
 
 }
