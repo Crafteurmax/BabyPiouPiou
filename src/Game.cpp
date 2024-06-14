@@ -1,7 +1,9 @@
 #include "Game.h"
 #include "SFML/Graphics.hpp"
+#include <DrawableObject.h>
 
 const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
+
 
 Game::Game()
 {
@@ -37,9 +39,11 @@ void Game::processEvents()
 		switch (event.type)
 		{
 		case sf::Event::KeyPressed:
+			player.handlePlayerInput(event.key.code, true);
 			break;
 
 		case sf::Event::KeyReleased:
+			player.handlePlayerInput(event.key.code, false);
 			break;
 
 		case sf::Event::MouseButtonReleased:
@@ -59,11 +63,12 @@ void Game::processEvents()
 
 void Game::update(sf::Time delatTime)
 {
-
+	player.update(delatTime);
 }
 
 void Game::render()
 {
 	mWindow.clear();
+	player.draw(mWindow);
 	mWindow.display();
 }

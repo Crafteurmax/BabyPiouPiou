@@ -5,7 +5,7 @@
 
 class Enemy : public HpLiving {
 public :
-	void update() override;
+	void update(const sf::Time& elapsedTime) override;
 private:
 	int _waveIndex;
 };

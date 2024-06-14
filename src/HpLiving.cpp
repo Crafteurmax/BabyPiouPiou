@@ -2,10 +2,11 @@
 
 
 //TODO IMPLEMENT
-//HpLiving::HpLiving()
-//{
-//}
-//
+HpLiving::HpLiving(sf::Vector2f size) :
+	DrawableObject(size)
+{
+}
+
 //HpLiving::~HpLiving()
 //{
 //}
@@ -19,4 +20,8 @@ bool HpLiving::isDead() const
 void HpLiving::damage()
 {
 	//TODO IMPLEMENT
+}
+
+void HpLiving::update(const sf::Time& elapsedTime)
+{
 }

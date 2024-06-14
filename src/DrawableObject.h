@@ -5,16 +5,19 @@
 
 class DrawableObject {
 public:
-	DrawableObject() = default;
+	DrawableObject(sf::Vector2f size);
 	virtual ~DrawableObject() = default;
-	void draw() const;
+	void draw(sf::RenderWindow& window) const;
 	void setPosition(sf::Vector2f& pos);
 	sf::Vector2f getPosition() const;
-	virtual void update() = 0;
+	virtual void update(const sf::Time& elapsedTime);
 
-private:
+	sf::Vector2f getOffsetPosition();
+
+protected:
 	std::string _label;
 	sf::Vector2f _position;
 	sf::Vector2f _size;
 	sf::Texture _texture;
+	sf::Sprite _sprite;
 };

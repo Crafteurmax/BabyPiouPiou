@@ -4,11 +4,11 @@
 
 class HpLiving : public DrawableObject {
 public: 
-	HpLiving() = default;
+	HpLiving(sf::Vector2f size);
 	~HpLiving() override = default;
 	bool isDead() const;
 	void damage();
-	void update() override = 0;
+	void update(const sf::Time& elapsedTime) override;
 private:
 	float _health;
 };
