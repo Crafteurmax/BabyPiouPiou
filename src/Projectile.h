@@ -11,7 +11,8 @@ enum class ProjectileType {
 
 class Projectile : public DrawableObject {
 public:
-	void update() override = 0;
+	Projectile(const pugi::xml_node& node);
+	void update(const sf::Time& elapsedTime) override = 0;
 
 private:
 	float _lifetime;

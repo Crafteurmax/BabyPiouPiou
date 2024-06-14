@@ -6,7 +6,7 @@
 class HpLiving : public DrawableObject {
 public:
 	HpLiving(const std::string& label, const sf::Vector2f& size, float startHP, const std::string& texture);
-	HpLiving(pugi::xml_node& node);
+	HpLiving(const pugi::xml_node& node);
 	~HpLiving() override = default;
 	bool isDead() const;
 	void damage(float amount);

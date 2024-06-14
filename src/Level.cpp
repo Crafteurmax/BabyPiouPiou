@@ -35,10 +35,10 @@ Level::Level(const std::string& name) {
 
 void Level::loadPrefabs(const pugi::xml_node& prefabsNode)
 {
-	//for (const auto& child : prefabsNode.children()) {
-	//	//TODO Implement multi enemy types
-	//	const auto enemyPrefab = Enemy(child);
-	//}
+	for (const auto& child : prefabsNode.children()) {
+		//TODO Implement multi enemy types
+		const auto enemyPrefab = Enemy(child);
+	}
 }
 
 void Level::loadObjects(const pugi::xml_node& prefabsNode)
