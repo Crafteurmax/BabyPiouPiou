@@ -2,9 +2,10 @@
 
 
 //TODO IMPLEMENT
-HpLiving::HpLiving(sf::Vector2f size) :
+HpLiving::HpLiving(sf::Vector2f size, float startHP) :
 	DrawableObject(size)
 {
+	_health = startHP;
 }
 
 //HpLiving::~HpLiving()
@@ -13,13 +14,12 @@ HpLiving::HpLiving(sf::Vector2f size) :
 
 bool HpLiving::isDead() const
 {
-	//TODO IMPLEMENT
-	return false;
+	return _health <= 0;
 }
 
-void HpLiving::damage()
+void HpLiving::damage(float amount)
 {
-	//TODO IMPLEMENT
+	_health -= amount;
 }
 
 void HpLiving::update(const sf::Time& elapsedTime)
