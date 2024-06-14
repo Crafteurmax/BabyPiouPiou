@@ -61,9 +61,9 @@ void Game::processEvents()
 	
 }
 
-void Game::update(sf::Time delatTime)
+void Game::update(sf::Time deltaTime)
 {
-	player.update(delatTime);
+	player.update(deltaTime);
 }
 
 void Game::render()

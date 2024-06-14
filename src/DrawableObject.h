@@ -5,7 +5,7 @@
 
 class DrawableObject {
 public:
-	DrawableObject(sf::Vector2f size);
+	DrawableObject(const sf::Vector2f& size, const std::string& label);
 	virtual ~DrawableObject() = default;
 	void draw(sf::RenderWindow& window) const;
 	void setPosition(sf::Vector2f& pos);

@@ -2,10 +2,10 @@
 
 
 //TODO IMPLEMENT
-HpLiving::HpLiving(sf::Vector2f size, float startHP) :
-	DrawableObject(size)
+HpLiving::HpLiving(const sf::Vector2f& size, float startHP, const std::string& texture) :
+	DrawableObject(size, texture),
+	_health(startHP)
 {
-	_health = startHP;
 }
 
 //HpLiving::~HpLiving()

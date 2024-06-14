@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player() :
-    HpLiving({ 100,100 }, 10)
+    HpLiving({ 100,100 }, 10, "chat.png")
 {
 
 }

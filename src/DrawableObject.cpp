@@ -1,23 +1,22 @@
 #include "DrawableObject.h"
 #include <iostream>
 
-std::string pathToSprite = "./resources/sprite/";
+std::string pathToSprite = "./resources/sprites/";
 
 
-DrawableObject::DrawableObject(sf::Vector2f size)
+DrawableObject::DrawableObject(const sf::Vector2f& size, const std::string& textureName)
 {
 	_size = size;
 	_position = { 0,0 };
 	//save texture as global because of this : https://www.sfml-dev.org/tutorials/2.6/graphics-sprite.php#the-white-square-problem
-	if (!_texture.loadFromFile("C:\\Users\\Maxime_Sansane\\Desktop\\BabyPiouPiou\\resources\\sprites\\chat.png"))
+	if (!_texture.loadFromFile(pathToSprite + textureName))
 	{
 		// handle error
 	}
+	_texture.setSmooth(true);
 	_sprite.setTexture(_texture);
 	_sprite.setScale(size.x / _texture.getSize().x, size.y / _texture.getSize().y);
 	_sprite.setPosition(_position);
-	//std::cout << "x : " + std::to_string(getOffsetPosition().x) + "y : " + std::to_string(getOffsetPosition().y) << std::endl;
-
 }
 
 /*

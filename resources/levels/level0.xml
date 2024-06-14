@@ -1,5 +1,28 @@
-<Level name="level0">
-	
-	
-	
+<Level label="level0">
+
+	<Prefabs>
+		<Tank label="test_enemy" size_x="100" size_y="100" sprite="chat.png">
+			<Spellcard label="spell_1" delay="5">
+				<ProjectileA label="projectile_1" lifetime="5.0" vel_x="10" vel_y="10" delta_x="0" delta_y="0" size_x="10" sprite="chat.png"/>
+			</Spellcard>
+		</Tank>
+	</Prefabs>
+
+	<Waves>
+		<Wave>
+			<Enemy label="test_enemy1" ref="test_enemy" pos_x="200" pos_y="200" />
+			<Enemy label="test_enemy2" ref="test_enemy" pos_x="300" pos_y="200" />
+			<Enemy label="test_enemy3" ref="test_enemy" pos_x="400" pos_y="200" />
+		</Wave>
+		<Wave>
+			<Enemy label="test_enemy11" ref="test_enemy" pos_x="200" pos_y="200" />
+			<Enemy label="test_enemy12" ref="test_enemy" pos_x="300" pos_y="200" />
+			<Enemy label="test_enemy13" ref="test_enemy" pos_x="400" pos_y="200" />
+			<Enemy label="test_enemy14" ref="test_enemy" pos_x="500" pos_y="200" />
+			<Enemy label="test_enemy15" ref="test_enemy" pos_x="600" pos_y="200" />
+		</Wave>
+	</Waves>
+
+
+
 </Level>
