@@ -107,3 +107,15 @@ TEST(PlayerMovement, test5) {
 	EXPECT_EQ(player.getPosition().x, 0.1f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
 }
+
+TEST(HealthSystem, test1) {
+	HpLiving hp({100,100},10);
+	ASSERT_FALSE(hp.isDead());
+	ASSERT_EQ(hp.getHealth(), 10);
+	hp.damage(5);
+	ASSERT_EQ(hp.getHealth(), 5);
+	hp.damage(5);
+	ASSERT_EQ(hp.getHealth(), 0);
+	ASSERT_TRUE(hp.isDead());
+
+}

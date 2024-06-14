@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player() :
-    HpLiving({ 100,100 })
+    HpLiving({ 100,100 }, 10)
 {
 
 }

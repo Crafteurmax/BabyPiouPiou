@@ -25,3 +25,8 @@ void HpLiving::damage(float amount)
 void HpLiving::update(const sf::Time& elapsedTime)
 {
 }
+
+float HpLiving::getHealth()
+{
+	return _health;
+}

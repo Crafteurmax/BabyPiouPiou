@@ -9,6 +9,7 @@ public:
 	bool isDead() const;
 	void damage(float amount);
 	void update(const sf::Time& elapsedTime) override;
+	float getHealth();
 private:
 	float _health;
 };
