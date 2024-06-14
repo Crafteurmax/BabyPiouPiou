@@ -19,8 +19,8 @@ Level::Level(const std::string& name) {
 
 	_label = level.attribute("label").as_string();
 
-	loadPrefabs(level.find_child("Prefabs"));
-	loadPrefabs(level.find_child("Waves"));
+	/*loadPrefabs(level.find_child("Prefabs"));
+	loadPrefabs(level.find_child("Waves"));*/
 }
 
 void Level::loadPrefabs(const pugi::xml_node& prefabsNode)
