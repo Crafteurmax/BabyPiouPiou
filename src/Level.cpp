@@ -19,6 +19,16 @@ Level::Level(const std::string& name) {
 
 	_label = level.attribute("label").as_string();
 
+	for (const auto& child : level.children()) {
+		if (child.name() == "Prefabs") {
+			loadPrefabs(child);
+		}
+
+		if (child.name() == "Waves") {
+			loadObjects(child);
+		}
+	}
+
 	/*loadPrefabs(level.find_child("Prefabs"));
 	loadPrefabs(level.find_child("Waves"));*/
 }
