@@ -10,6 +10,7 @@ public:
 	void handlePlayerInput(const sf::Keyboard::Key& key, const bool& isPressed);
 
 private:
+	sf::Vector2f _movement;
 	bool isMoving[4] = { false, false, false, false };
 	float speed = 100;
 	float invSqr2 = 0.707106f;
