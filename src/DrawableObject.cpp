@@ -15,7 +15,7 @@ DrawableObject::DrawableObject(sf::Vector2f size)
 	}
 	_sprite.setTexture(_texture);
 	_sprite.setScale(size.x / _texture.getSize().x, size.y / _texture.getSize().y);
-	_sprite.setPosition(getOffsetPosition());
+	_sprite.setPosition(_position);
 	//std::cout << "x : " + std::to_string(getOffsetPosition().x) + "y : " + std::to_string(getOffsetPosition().y) << std::endl;
 
 }
@@ -39,8 +39,7 @@ void DrawableObject::setPosition(sf::Vector2f& pos)
 
 sf::Vector2f DrawableObject::getPosition() const
 {
-	//TODO IMPLEMENT
-	return sf::Vector2f();
+	return _position;
 }
 
 void DrawableObject::update(const sf::Time& elapsedTime)

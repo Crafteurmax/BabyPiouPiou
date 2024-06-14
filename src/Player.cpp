@@ -18,7 +18,9 @@ void Player::update(const sf::Time& elapsedTime) {
         movement.x += 1;
     
     if (movement.x != 0 && movement.y != 0) movement *= invSqr2;
-    _sprite.move(movement * elapsedTime.asSeconds() * speed);
+    
+    _position += movement * elapsedTime.asSeconds() * speed;
+    _sprite.setPosition(_position);
 }
 
 void Player::handlePlayerInput(const sf::Keyboard::Key& key, const bool& isPressed) {
