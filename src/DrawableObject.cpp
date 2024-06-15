@@ -23,6 +23,10 @@ DrawableObject::DrawableObject(const pugi::xml_node& node)
 
 }
 
+DrawableObject::DrawableObject(const DrawableObject & prefab, std::string label)
+{
+	_label = label;
+}
 /*
 DrawableObject::~DrawableObject()
 {

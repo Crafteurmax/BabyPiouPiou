@@ -9,6 +9,7 @@
 class Enemy : public HpLiving {
 public :
 	Enemy(const pugi::xml_node& node);
+	Enemy(const Enemy& prefab, std::string label);
 	void update(const sf::Time& elapsedTime) override;
 private:
 	int _waveIndex;

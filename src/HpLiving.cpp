@@ -15,6 +15,11 @@ HpLiving::HpLiving(const pugi::xml_node& node) :
 	
 }
 
+HpLiving::HpLiving(const HpLiving& prefab, std::string label) :
+	DrawableObject(prefab,label)
+{
+}
+
 //HpLiving::~HpLiving()
 //{
 //}
