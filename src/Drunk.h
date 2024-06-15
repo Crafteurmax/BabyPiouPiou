@@ -6,6 +6,7 @@
 
 class Drunk : public Enemy {
 public:
+	Drunk(const Drunk& other) = default;
 	explicit Drunk(pugi::xml_node& node);
 	Drunk(const Drunk& prefabDrunk, sf::Vector2f pos, float startAngle, std::string label);
 	void update(const sf::Time& elapsedTime) override;

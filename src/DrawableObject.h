@@ -6,6 +6,8 @@
 
 class DrawableObject {
 public:
+	DrawableObject(const DrawableObject& other) = default;
+
 	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName);
 	DrawableObject(const pugi::xml_node& node);
 	DrawableObject(const DrawableObject& prefab, std::string label);

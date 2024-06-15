@@ -5,6 +5,8 @@
 
 class HpLiving : public DrawableObject {
 public:
+	HpLiving(const HpLiving& other) = default;
+
 	HpLiving(const std::string& label, const sf::Vector2f& size, float startHP, const std::string& texture);
 	HpLiving(const pugi::xml_node& node);
 	HpLiving(const HpLiving& prefab, std::string label);

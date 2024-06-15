@@ -11,10 +11,15 @@ Enemy::Enemy(const pugi::xml_node& node):
 
 }
 
-Enemy::Enemy(const Enemy& prefab, std::string label) :
+Enemy::Enemy(const Enemy& prefab, const std::string& label) :
 	HpLiving(prefab,label)
 {
 }
 void Enemy::update(const sf::Time& elapsedTime) {
 	//TODO
+}
+
+void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position) {
+	_label = label;
+	_position = position;
 }

@@ -29,19 +29,36 @@ Level::Level(const std::string& name) {
 		}
 	}
 
-	/*loadPrefabs(level.find_child("Prefabs"));
-	loadPrefabs(level.find_child("Waves"));*/
+	_currentWave = _waves.begin();
 }
 
 void Level::loadPrefabs(const pugi::xml_node& prefabsNode)
 {
 	for (const auto& child : prefabsNode.children()) {
 		//TODO Implement multi enemy types
-		const auto enemyPrefab = Enemy(child);
+		
+
+		_enemiesList.push_back(std::make_shared<Enemy>(child));
 	}
 }
 
-void Level::loadObjects(const pugi::xml_node& prefabsNode)
+void Level::loadObjects(const pugi::xml_node& wavesNodes)
 {
+	for (const auto& child : wavesNodes.children()) {
+		_waves.emplace_back(child, _enemiesList);
+	}
+}
 
+
+bool Level::popWave(std::vector<std::unique_ptr<Enemy>>& enemies) {
+	if (_currentWave >= _waves.end()) {
+		return false;
+	}
+
+	const auto& wave = *_currentWave;
+	wave.spawnEnemies(enemies);
+
+
+	_currentWave++;
+	return true;
 }
