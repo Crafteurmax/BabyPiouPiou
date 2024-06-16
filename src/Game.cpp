@@ -40,10 +40,12 @@ void Game::processEvents()
 		{
 		case sf::Event::KeyPressed:
 			player.handlePlayerInput(event.key.code, true);
+			bg.handlePlayerInput(event.key.code, true);
 			break;
 
 		case sf::Event::KeyReleased:
 			player.handlePlayerInput(event.key.code, false);
+			bg.handlePlayerInput(event.key.code, false);
 			break;
 
 		case sf::Event::MouseButtonReleased:
@@ -64,11 +66,13 @@ void Game::processEvents()
 void Game::update(sf::Time deltaTime)
 {
 	player.update(deltaTime);
+	bg.update(deltaTime);
 }
 
 void Game::render()
 {
 	mWindow.clear();
+	bg.draw(mWindow);
 	player.draw(mWindow);
 	mWindow.display();
 }

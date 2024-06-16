@@ -10,9 +10,10 @@ public:
 
 	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName);
 	DrawableObject(const pugi::xml_node& node);
+	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName, int repeat);
 	DrawableObject(const DrawableObject& prefab, std::string label);
 	virtual ~DrawableObject() = default;
-	void draw(sf::RenderWindow& window) const;
+	virtual void draw(sf::RenderWindow& window);
 	void setPosition(sf::Vector2f& pos);
 	sf::Vector2f getPosition() const;
 	virtual void update(const sf::Time& elapsedTime);

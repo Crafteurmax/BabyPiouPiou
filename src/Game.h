@@ -2,6 +2,7 @@
 
 #include "SFML/Graphics.hpp"
 #include "Player.h"
+#include <Background.h>
 class Game {
 public :
 	Game();
@@ -12,6 +13,8 @@ private:
 	Player					player{};
 	static const sf::Time	TimePerFrame;
 	bool					_isRunning = false;
+
+	Background				bg;
 
 	void processEvents();
 	void update(sf::Time delatTime);
