@@ -3,21 +3,6 @@
 
 std::string pathToSprite = "./resources/sprites/";
 
-
-DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName) : _label(label), _size(size)
-{
-	//_position = { 0,0 };
-	//save texture as global because of this : https://www.sfml-dev.org/tutorials/2.6/graphics-sprite.php#the-white-square-problem
-	if (!_texture.loadFromFile(pathToSprite + textureName))
-	{
-		// handle error
-	}
-	_texture.setSmooth(true);
-	_sprite.setTexture(_texture);
-	_sprite.setScale(size.x / _texture.getSize().x, size.y / _texture.getSize().y);
-	_sprite.setPosition(_position);
-}
-
 DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName, int repeat) : _label(label), _size(size)
 {
 	//save texture as global because of this : https://www.sfml-dev.org/tutorials/2.6/graphics-sprite.php#the-white-square-problem
@@ -27,7 +12,7 @@ DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& siz
 	}
 	_texture.setSmooth(true);
 	_texture.setRepeated(true);
-	_sprite.setTextureRect(sf::IntRect(0, 0, size.x * repeat, size.y * repeat));
+	if(repeat != 1) _sprite.setTextureRect(sf::IntRect(0, 0, size.x * repeat, size.y * repeat));
 	_sprite.setTexture(_texture);
 	_sprite.setScale(size.x / _texture.getSize().x, size.y / _texture.getSize().y);
 	_sprite.setPosition(_position);

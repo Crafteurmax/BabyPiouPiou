@@ -7,7 +7,7 @@ const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
 
 Game::Game()
 {
-
+	bullets.push_back(Projectile(1000.f, ProjectileType::FROM_PLAYER, { 200.f,200.f }, { 5.f,10.f },{-2.f,0.f}));
 }
 
 void Game::run()
@@ -67,6 +67,7 @@ void Game::update(sf::Time deltaTime)
 {
 	player.update(deltaTime);
 	bg.update(deltaTime);
+	for (Projectile& bullet : bullets) bullet.update(deltaTime);
 }
 
 void Game::render()
@@ -74,5 +75,7 @@ void Game::render()
 	mWindow.clear();
 	bg.draw(mWindow);
 	player.draw(mWindow);
+	bullets.at(0).draw(mWindow);
+	//for (Projectile &bullet : bullets) bullet.draw(mWindow);
 	mWindow.display();
 }

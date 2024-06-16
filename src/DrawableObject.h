@@ -8,9 +8,8 @@ class DrawableObject {
 public:
 	DrawableObject(const DrawableObject& other) = default;
 
-	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName);
 	DrawableObject(const pugi::xml_node& node);
-	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName, int repeat);
+	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName, int repeat = 1);
 	DrawableObject(const DrawableObject& prefab, std::string label);
 	virtual ~DrawableObject() = default;
 	virtual void draw(sf::RenderWindow& window);

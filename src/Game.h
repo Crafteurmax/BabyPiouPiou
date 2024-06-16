@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "Player.h"
 #include <Background.h>
+#include <Projectile.h>
 class Game {
 public :
 	Game();
@@ -15,6 +16,7 @@ private:
 	bool					_isRunning = false;
 
 	Background				bg;
+	std::vector<Projectile> bullets;
 
 	void processEvents();
 	void update(sf::Time delatTime);
