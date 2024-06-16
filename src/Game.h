@@ -2,8 +2,12 @@
 
 #include "SFML/Graphics.hpp"
 #include "Player.h"
-#include <Background.h>
-#include <Projectile.h>
+#include "Background.h"
+#include "Projectile.h"
+#include "Enemy.h"
+#include "Level.h"
+
+
 class Game {
 public :
 	Game();
@@ -16,7 +20,11 @@ private:
 	bool					_isRunning = false;
 
 	Background				bg;
-	std::vector<Projectile> bullets;
+	Level _level{ "level0" };
+	bool _levelEnd = false;
+
+	std::vector<std::unique_ptr<Projectile>> bullets;
+	std::vector<std::unique_ptr<Enemy>> _currentEnemies;
 
 	void processEvents();
 	void update(sf::Time delatTime);

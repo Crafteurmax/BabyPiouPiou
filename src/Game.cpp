@@ -5,9 +5,9 @@
 const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
 
 
-Game::Game()
+Game::Game() 
 {
-	bullets.push_back(Projectile(1000.f, ProjectileType::FROM_PLAYER, { 200.f,200.f }, { 5.f,10.f },{-2.f,0.f}));
+	bullets.push_back(std::make_unique<Projectile>(Projectile(1000.f, ProjectileType::FROM_PLAYER, { 200.f,200.f }, { 5.f,10.f },{-2.f,0.f})));
 }
 
 void Game::run()
@@ -65,9 +65,13 @@ void Game::processEvents()
 
 void Game::update(sf::Time deltaTime)
 {
+	if (_currentEnemies.empty()) {
+		_levelEnd = _level.popWave(_currentEnemies);
+	}
+
 	player.update(deltaTime);
 	bg.update(deltaTime);
-	for (Projectile& bullet : bullets) bullet.update(deltaTime);
+	for (const auto& bullet : bullets) bullet->update(deltaTime);
 }
 
 void Game::render()
@@ -75,7 +79,12 @@ void Game::render()
 	mWindow.clear();
 	bg.draw(mWindow);
 	player.draw(mWindow);
-	bullets.at(0).draw(mWindow);
+	bullets.at(0)->draw(mWindow);
 	//for (Projectile &bullet : bullets) bullet.draw(mWindow);
+
+	for (const auto& enemy : _currentEnemies) {
+		enemy->draw(mWindow);
+	}
+
 	mWindow.display();
 }

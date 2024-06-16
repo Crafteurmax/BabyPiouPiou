@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include "pugixml.hpp"
 
+#include <iostream>
+
 class DrawableObject {
 public:
 	DrawableObject(const DrawableObject& other) = default;
@@ -17,10 +19,16 @@ public:
 	sf::Vector2f getPosition() const;
 	virtual void update(const sf::Time& elapsedTime);
 
+	void setLabel(std::string label) { _label = label; }
+	std::string getLabel() const { return _label; }
+
 	sf::Vector2f getOffsetPosition();
 
-protected:
+
+private:
 	std::string _label;
+protected: //PAS DE PROTECTED OMG
+
 	sf::Vector2f _position;
 	sf::Vector2f _size;
 	sf::Texture _texture;

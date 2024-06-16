@@ -20,11 +20,14 @@ Level::Level(const std::string& name) {
 	_label = level.attribute("label").as_string();
 
 	for (const auto& child : level.children()) {
-		if (child.name() == "Prefabs") {
+		std::cout << "Child found : " << child.name() << std::endl;
+		if (child.name() == std::string("Prefabs")) {
+			std::cout << "loadPrefabs" << std::endl;
 			loadPrefabs(child);
 		}
 
-		if (child.name() == "Waves") {
+		if (child.name() == std::string("Waves")) {
+			std::cout << "loadObjects" << std::endl;
 			loadObjects(child);
 		}
 	}
@@ -44,6 +47,7 @@ void Level::loadPrefabs(const pugi::xml_node& prefabsNode)
 
 void Level::loadObjects(const pugi::xml_node& wavesNodes)
 {
+	
 	for (const auto& child : wavesNodes.children()) {
 		_waves.emplace_back(child, _enemiesList);
 	}
@@ -51,9 +55,13 @@ void Level::loadObjects(const pugi::xml_node& wavesNodes)
 
 
 bool Level::popWave(std::vector<std::unique_ptr<Enemy>>& enemies) {
+	//std::cout << "Pop wave" << std::endl;
+
 	if (_currentWave >= _waves.end()) {
 		return false;
 	}
+
+	std::cout << "Wave found" << std::endl;
 
 	const auto& wave = *_currentWave;
 	wave.spawnEnemies(enemies);

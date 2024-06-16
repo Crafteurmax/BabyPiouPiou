@@ -4,8 +4,10 @@
 Enemy::Enemy(const pugi::xml_node& node):
 	HpLiving(node)
 {
+	std::cout << "Called 1 new : " << getLabel() << std::endl;
+
 	for (const auto& child : node.children()) {
-		_spellcards.push_back(SpellCard(child));
+		_spellcards.emplace_back(child);
 	}
 
 
@@ -20,6 +22,6 @@ void Enemy::update(const sf::Time& elapsedTime) {
 }
 
 void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position) {
-	_label = label;
+	setLabel(label);
 	_position = position;
 }

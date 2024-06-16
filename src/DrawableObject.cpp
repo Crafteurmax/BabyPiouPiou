@@ -16,16 +16,25 @@ DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& siz
 	_sprite.setTexture(_texture);
 	_sprite.setScale(size.x / _texture.getSize().x, size.y / _texture.getSize().y);
 	_sprite.setPosition(_position);
+
+	std::cout << "Called final : " << _label << std::endl;
+
 }
 
 DrawableObject::DrawableObject(const pugi::xml_node& node)
 {
 
+	const auto label = node.attribute("label").as_string();
+	const sf::Vector2f pos = sf::Vector2f{ node.attribute("size_x").as_float(), node.attribute("size_y").as_float() };
+	const auto sprite = node.attribute("sprite").as_string();
+
+	std::cout << "Called 1 : " << label << std::endl;
+
+	*this = DrawableObject(label, pos, sprite, 1);
 }
 
-DrawableObject::DrawableObject(const DrawableObject & prefab, std::string label)
+DrawableObject::DrawableObject(const DrawableObject & prefab, std::string label) : _label(label)
 {
-	_label = label;
 }
 /*
 DrawableObject::~DrawableObject()

@@ -12,7 +12,7 @@ HpLiving::HpLiving(const pugi::xml_node& node) :
 	DrawableObject(node),
 	_health(node.attribute("health").as_float())
 {
-	
+
 }
 
 HpLiving::HpLiving(const HpLiving& prefab, std::string label) :
