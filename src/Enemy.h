@@ -13,7 +13,7 @@ public :
 
 	inline std::unique_ptr<Enemy> clone() const { return std::make_unique<Enemy>(*this); }
 
-	void update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize);
+	virtual void update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize);
 	void setupInstance(const std::string& label, const sf::Vector2f& position);
 
 
