@@ -14,7 +14,7 @@ public :
 
 	inline std::unique_ptr<Enemy> clone() const { return std::make_unique<Enemy>(*this); }
 
-	void update(const sf::Time& elapsedTime) override;
+	virtual void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize);
 	void setupInstance(const std::string& label, const sf::Vector2f& position);
 
 
@@ -22,6 +22,10 @@ public :
 private:
 	int _waveIndex;
 	std::vector<SpellCard> _spellcards;
+
+protected:
+	float speed = 10;
+	float distance = 100;
 };
 
 

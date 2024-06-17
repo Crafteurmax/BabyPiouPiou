@@ -71,6 +71,7 @@ void Game::update(sf::Time deltaTime)
 
 	player.update(deltaTime);
 	bg.update(deltaTime);
+	for (const auto& enemy : _currentEnemies) enemy->update(deltaTime,player.getOffsetPosition(), { SCREENX ,SCREENY});
 	for (const auto& bullet : bullets) bullet->update(deltaTime);
 }
 
@@ -79,12 +80,8 @@ void Game::render()
 	mWindow.clear();
 	bg.draw(mWindow);
 	player.draw(mWindow);
-	bullets.at(0)->draw(mWindow);
-	//for (Projectile &bullet : bullets) bullet.draw(mWindow);
-
-	for (const auto& enemy : _currentEnemies) {
-		enemy->draw(mWindow);
-	}
+	for (const auto& bullet : bullets) bullet->draw(mWindow);
+	for (const auto& enemy : _currentEnemies) enemy->draw(mWindow);
 
 	mWindow.display();
 }

@@ -64,5 +64,5 @@ void DrawableObject::update(const sf::Time& elapsedTime)
 }
 
 sf::Vector2f DrawableObject::getOffsetPosition() {
-	return { _position.x - _size.x/2,_position.y - _size.y/2 };
+	return { _position.x + _size.x/2,_position.y + _size.y/2 };
 }

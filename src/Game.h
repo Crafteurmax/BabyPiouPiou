@@ -6,6 +6,8 @@
 #include "Projectile.h"
 #include "Enemy.h"
 #include "Level.h"
+#define SCREENX 640
+#define SCREENY 480
 
 
 class Game {
@@ -14,7 +16,7 @@ public :
 	void run();
 
 private:
-	sf::RenderWindow		mWindow{ sf::VideoMode{640, 480}, "BABY", sf::Style::Close };
+	sf::RenderWindow		mWindow{ sf::VideoMode{SCREENX, SCREENY}, "BABY", sf::Style::Close };
 	Player					player{};
 	static const sf::Time	TimePerFrame;
 	bool					_isRunning = false;

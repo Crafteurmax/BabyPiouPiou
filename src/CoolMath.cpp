@@ -28,3 +28,8 @@ sf::Vector2f CoolMath::normalize(sf::Vector2f vect)
 	return vect * Q_rsqrt(vect.x * vect.x + vect.y * vect.y);
 }
 
+float CoolMath::norme(sf::Vector2f vect)
+{
+	return 1/ Q_rsqrt(vect.x * vect.x + vect.y * vect.y);
+}
+
