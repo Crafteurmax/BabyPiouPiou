@@ -27,10 +27,11 @@ public:
 
 private:
 	std::string _label;
+	std::shared_ptr<sf::Texture> _texture;
 protected: //PAS DE PROTECTED OMG
 
 	sf::Vector2f _position;
 	sf::Vector2f _size;
-	sf::Texture _texture;
+	//sf::Texture _texture;
 	sf::Sprite _sprite;
 };
