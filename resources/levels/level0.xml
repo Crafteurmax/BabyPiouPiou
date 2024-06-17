@@ -3,7 +3,7 @@
 	<Prefabs>
 		<Tank label="test_enemy" size_x="50" size_y="50" sprite="tank.png">
 			<Spellcard label="spell_1" delay="5">
-				<ProjectileA label="projectile_1" lifetime="5.0" vel_x="10" vel_y="10" delta_x="0" delta_y="0" size_x="10" sprite="chat.png"/>
+				<ProjectileA label="projectile_1" lifetime="5.0" vel_x="10" vel_y="10" delta_x="0" delta_y="0" size_x="10" sprite="bullet.png"/>
 			</Spellcard>
 		</Tank>
 	</Prefabs>
