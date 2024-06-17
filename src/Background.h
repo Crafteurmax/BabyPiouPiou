@@ -16,7 +16,7 @@ constexpr float SIZE = 128.0f;
 class Background : public DrawableObject {
 public:
 	Background(sf::Vector2f screenSize);
-	void update(const sf::Time& elapsedTimee) override;
+	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	void handlePlayerInput(const sf::Keyboard::Key& key, const bool& isPressed);
 	void draw(sf::RenderWindow& window) override;
 

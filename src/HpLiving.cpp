@@ -25,11 +25,11 @@ void HpLiving::damage(float amount)
 	_health -= amount;
 }
 
-void HpLiving::update(const sf::Time& elapsedTime)
+void HpLiving::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize)
 {
 	//TODO ADD STUFF
 
-	DrawableObject::update(elapsedTime);
+	DrawableObject::update(elapsedTime, playerPos, screenSize);
 }
 
 float HpLiving::getHealth() const

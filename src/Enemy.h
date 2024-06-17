@@ -12,10 +12,10 @@ public :
 	Enemy(const Enemy& other) = default;
 	explicit Enemy(const pugi::xml_node& node);
 
-	inline std::unique_ptr<Enemy> clone() const { return std::make_unique<Enemy>(*this); }
+	virtual inline std::unique_ptr<Enemy> clone() const { return std::make_unique<Enemy>(*this); }
 
-	virtual void update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize);
-	void setupInstance(const std::string& label, const sf::Vector2f& position);
+	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
+	virtual void setupInstance(const std::string& label, const sf::Vector2f& position);
 	std::vector<std::unique_ptr<Projectile>> shoot(const sf::Time& elapsedTime, sf::Vector2f playerPos);
 
 

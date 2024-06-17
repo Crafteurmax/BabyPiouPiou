@@ -12,7 +12,7 @@ Enemy::Enemy(const pugi::xml_node& node):
 
 }
 
-void Enemy::update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
+void Enemy::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
 	// on cherche la direction vers le joueur
 	sf::Vector2f direction = playerPos - getOffsetPosition();
 	float norme = CoolMath::norme(direction);
@@ -24,7 +24,7 @@ void Enemy::update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vec
 	if (norme > distance)
 	{
 		_position += direction * elapsedTime.asSeconds() * speed;
-		HpLiving::update(elapsedTime);
+		HpLiving::update(elapsedTime, playerPos, screenSize);
 		return;
 	}
 
@@ -53,7 +53,9 @@ void Enemy::update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vec
 		else _position.x += direction.x * speed * elapsedTime.asSeconds();
 	}
 
-	HpLiving::update(elapsedTime);
+
+
+	HpLiving::update(elapsedTime, playerPos, screenSize);
 }
 
 void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position) {

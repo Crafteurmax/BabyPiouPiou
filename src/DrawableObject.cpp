@@ -46,7 +46,7 @@ sf::Vector2f DrawableObject::getPosition() const
 	return _position;
 }
 
-void DrawableObject::update(const sf::Time& elapsedTime)
+void DrawableObject::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize)
 {
 	_sprite.setPosition(_position);
 }

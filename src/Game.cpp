@@ -69,10 +69,10 @@ void Game::update(sf::Time deltaTime)
 		_levelEnd = _level.popWave(_currentEnemies);
 	}
 
-	player.update(deltaTime);
-	bg.update(deltaTime);
-	for (const auto& enemy : _currentEnemies) enemy->update2(deltaTime,player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT});
-	for (const auto& bullet : bullets) bullet->update(deltaTime);
+	player.update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
+	bg.update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
+	for (const auto& enemy : _currentEnemies) enemy->update(deltaTime,player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT});
+	for (const auto& bullet : bullets) bullet->update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
 }
 
 void Game::render()

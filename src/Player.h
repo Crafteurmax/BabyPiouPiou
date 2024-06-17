@@ -8,7 +8,7 @@
 class Player : public HpLiving {
 public:
 	Player();
-	void update(const sf::Time& elapsedTimee) override;
+	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	void handlePlayerInput(const sf::Keyboard::Key& key, const bool& isPressed);
 
 private:

@@ -8,7 +8,7 @@ Background::Background(sf::Vector2f screenSize) :
 }
 
 
-void Background::update(const sf::Time& elapsedTime) {
+void Background::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
     sf::Vector2f movement(0.f, 0.f);
     if (isMoving[0])
         movement.y -= 1;
@@ -35,7 +35,7 @@ void Background::update(const sf::Time& elapsedTime) {
     if (_position2.x <= -SIZE) _position2.x += SIZE;
     if (_position2.y <= -SIZE) _position2.y += SIZE;
     midLayer.setPosition(_position2);
-    midLayer.update(elapsedTime);
+    midLayer.update(elapsedTime, playerPos, screenSize);
 
 }
 

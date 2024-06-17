@@ -1,13 +1,20 @@
 #include "Drunk.h"
 
-Drunk::Drunk(pugi::xml_node& refNode) :
-	Enemy(refNode)
+#include "CoolMath.h"
+
+
+Drunk::Drunk(const pugi::xml_node& refNode) :
+	Enemy(refNode),
+	angularVelocity(refNode.attribute("angular_velocity").as_float()),
+	radius(refNode.attribute("radius").as_float())
+	
 {
 
 }
 
-void Drunk::update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize)
+void Drunk::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize)
 {
+
 	// on cherche la direction vers le joueur
 	sf::Vector2f direction = playerPos - movingCenter;
 	float norme = CoolMath::norme(direction);
@@ -19,7 +26,12 @@ void Drunk::update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vec
 	if (norme > distance)
 	{
 		movingCenter += direction * elapsedTime.asSeconds() * speed;
-		update(elapsedTime);
+
+		currentAngle += angularVelocity * elapsedTime.asSeconds();
+
+		_position = movingCenter + sf::Vector2f(cos(currentAngle), sin(currentAngle)) * radius;
+
+		HpLiving::update(elapsedTime, playerPos, screenSize);
 		return;
 	}
 
@@ -48,14 +60,13 @@ void Drunk::update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vec
 		else movingCenter.x += direction.x * speed * elapsedTime.asSeconds();
 	}
 
-	update(elapsedTime);
-}
-
-void Drunk::update(const sf::Time& elapsedTime)
-{
 	currentAngle += angularVelocity * elapsedTime.asSeconds();
 
 	_position = movingCenter + sf::Vector2f(cos(currentAngle), sin(currentAngle)) * radius;
+	HpLiving::update(elapsedTime, playerPos, screenSize);
+}
 
-	HpLiving::update(elapsedTime);
+void Drunk::setupInstance(const std::string& label, const sf::Vector2f& position) {
+	Enemy::setupInstance(label, position);
+	movingCenter = position;
 }

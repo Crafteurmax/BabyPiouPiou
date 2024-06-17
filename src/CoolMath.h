@@ -1,3 +1,6 @@
+#ifndef COOLMATH
+#define COOLMATH
+
 
 #include <random>
 #include "SFML/Graphics.hpp"
@@ -9,3 +12,5 @@ public :
 	static float norme(sf::Vector2f vect);
 	static int randomInt(int const nbMax);
 };
+
+#endif

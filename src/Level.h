@@ -6,6 +6,7 @@
 #include <vector>
 #include "Enemy.h"
 #include "Wave.h"
+#include "Drunk.h"
 
 class Level {
 public:

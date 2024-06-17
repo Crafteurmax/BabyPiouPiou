@@ -6,7 +6,7 @@ Player::Player() :
 
 }
 
-void Player::update(const sf::Time& elapsedTime) {
+void Player::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
     sf::Vector2f movement(0.f, 0.f);
     if (isMoving[0])
         movement.y -= 1;

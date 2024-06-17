@@ -12,7 +12,7 @@ Projectile::Projectile(float _lifetime, ProjectileType _projectileType, sf::Vect
 	setPosition(pos);
 }
 
-void Projectile::update(const sf::Time& elapsedTime)
+void Projectile::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize)
 {
 	_lifetime -= elapsedTime.asSeconds();
 
