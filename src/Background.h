@@ -15,7 +15,7 @@ constexpr float SIZE = 128.0f;
 
 class Background : public DrawableObject {
 public:
-	Background();
+	Background(sf::Vector2f screenSize);
 	void update(const sf::Time& elapsedTimee) override;
 	void handlePlayerInput(const sf::Keyboard::Key& key, const bool& isPressed);
 	void draw(sf::RenderWindow& window) override;
@@ -28,7 +28,7 @@ private:
 	float speed = -5;
 	float invSqr2 = 0.707106f;
 
-	DrawableObject midLayer{ "sky2", { SIZE,SIZE }, "sky2.png" , 12};
+	DrawableObject midLayer;
 };
 
 #endif BACKGROUND

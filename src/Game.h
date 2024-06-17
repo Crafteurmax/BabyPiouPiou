@@ -23,7 +23,7 @@ private:
 	static const sf::Time	TimePerFrame;
 	bool					_isRunning = false;
 
-	Background				bg;
+	Background				bg{ {WINDOW_WIDTH,WINDOW_HEIGHT} };
 	Level _level{ "level0" };
 	bool _levelEnd = false;
 
