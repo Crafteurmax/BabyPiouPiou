@@ -1,6 +1,4 @@
 #include "Enemy.h"
-#include "pugixml.hpp"
-#include "CoolMath.h"
 
 Enemy::Enemy(const pugi::xml_node& node): 
 	HpLiving(node)
@@ -61,4 +59,21 @@ void Enemy::update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vec
 void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position) {
 	setLabel(label);
 	_position = position;
+}
+
+std::vector<std::unique_ptr<Projectile>> Enemy::shoot(const sf::Time& elapsedTime, sf::Vector2f playerPos)
+{
+	int possibleCount = 0;
+	for (float cooldown : _spellCoolDown) if (cooldown <= 0) possibleCount++;
+	if(possibleCount == 0) return std::vector<std::unique_ptr<Projectile>>();
+	int RandomSpell = CoolMath::randomInt(possibleCount);
+
+	for (int i = 0; i < _spellcards.size(); i++) {
+		if (_spellCoolDown[i] > 0) continue;
+		RandomSpell--;
+		if (possibleCount != 0) continue;
+
+
+		return _spellcards[i].spawnSpell();
+	}
 }

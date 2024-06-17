@@ -7,3 +7,13 @@ SpellCard::SpellCard(pugi::xml_node node) : _label(node.attribute("label").as_st
 	}
 
 }
+
+std::vector<std::unique_ptr<Projectile>> SpellCard::spawnSpell()
+{
+	return std::vector<std::unique_ptr<Projectile>>();
+}
+
+float SpellCard::getDelay()
+{
+	return _delay;
+}

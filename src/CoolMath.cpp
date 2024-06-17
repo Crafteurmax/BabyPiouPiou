@@ -33,3 +33,14 @@ float CoolMath::norme(sf::Vector2f vect)
 	return 1/ Q_rsqrt(vect.x * vect.x + vect.y * vect.y);
 }
 
+int CoolMath::randomInt(int const nbMax)
+{
+	
+	static std::random_device rd;
+	static std::default_random_engine engine(rd());
+	std::uniform_int_distribution<> distribution(1, nbMax);
+	return distribution(engine);
+	
+	return 0;
+}
+
