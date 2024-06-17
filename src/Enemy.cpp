@@ -26,7 +26,7 @@ void Enemy::update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vec
 	if (norme > distance)
 	{
 		_position += direction * elapsedTime.asSeconds() * speed;
-		_sprite.setPosition(_position);
+		HpLiving::update(elapsedTime);
 		return;
 	}
 
