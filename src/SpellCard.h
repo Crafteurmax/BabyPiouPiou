@@ -8,7 +8,7 @@
 
 class SpellCard {
 public:
-	SpellCard(pugi::xml_node node);
+	explicit SpellCard(pugi::xml_node node);
 
 private:
 	std::vector<Projectile> _projectiles;

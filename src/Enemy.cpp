@@ -2,7 +2,7 @@
 #include "pugixml.hpp"
 #include "CoolMath.h"
 
-Enemy::Enemy(const pugi::xml_node& node):
+Enemy::Enemy(const pugi::xml_node& node): 
 	HpLiving(node)
 {
 	std::cout << "Called 1 new : " << getLabel() << std::endl;
@@ -14,11 +14,7 @@ Enemy::Enemy(const pugi::xml_node& node):
 
 }
 
-Enemy::Enemy(const Enemy& prefab, const std::string& label) :
-	HpLiving(prefab,label)
-{
-}
-void Enemy::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
+void Enemy::update2(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
 	// on cherche la direction vers le joueur
 	sf::Vector2f direction = playerPos - getOffsetPosition();
 	float norme = CoolMath::norme(direction);
@@ -59,7 +55,7 @@ void Enemy::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vect
 		else _position.x += direction.x * speed * elapsedTime.asSeconds();
 	}
 
-	_sprite.setPosition(_position);
+	HpLiving::update(elapsedTime);
 }
 
 void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position) {

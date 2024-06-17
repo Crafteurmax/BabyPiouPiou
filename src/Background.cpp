@@ -4,7 +4,6 @@
 Background::Background() :
     DrawableObject("sky", { SIZE,SIZE }, "sky.png",12)
 {
-    //setPosition({ -SIZE, -SIZE });
 }
 
 

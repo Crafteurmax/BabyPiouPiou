@@ -8,13 +8,12 @@ public:
 	HpLiving(const HpLiving& other) = default;
 
 	HpLiving(const std::string& label, const sf::Vector2f& size, float startHP, const std::string& texture);
-	HpLiving(const pugi::xml_node& node);
-	HpLiving(const HpLiving& prefab, std::string label);
+	explicit HpLiving(const pugi::xml_node& node);
 	~HpLiving() override = default;
 	bool isDead() const;
 	void damage(float amount);
 	void update(const sf::Time& elapsedTime) override;
-	float getHealth();
+	float getHealth() const;
 private:
 	float _health;
 };

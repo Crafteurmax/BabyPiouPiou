@@ -71,7 +71,7 @@ void Game::update(sf::Time deltaTime)
 
 	player.update(deltaTime);
 	bg.update(deltaTime);
-	for (const auto& enemy : _currentEnemies) enemy->update(deltaTime,player.getOffsetPosition(), { SCREENX ,SCREENY});
+	for (const auto& enemy : _currentEnemies) enemy->update2(deltaTime,player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT});
 	for (const auto& bullet : bullets) bullet->update(deltaTime);
 }
 

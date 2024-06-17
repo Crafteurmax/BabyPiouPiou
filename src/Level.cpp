@@ -55,17 +55,12 @@ void Level::loadObjects(const pugi::xml_node& wavesNodes)
 
 
 bool Level::popWave(std::vector<std::unique_ptr<Enemy>>& enemies) {
-	//std::cout << "Pop wave" << std::endl;
-
 	if (_currentWave >= _waves.end()) {
 		return false;
 	}
 
-	std::cout << "Wave found" << std::endl;
-
 	const auto& wave = *_currentWave;
 	wave.spawnEnemies(enemies);
-
 
 	_currentWave++;
 	return true;

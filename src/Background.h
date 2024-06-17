@@ -1,7 +1,16 @@
+#ifndef BACKGROUND
+#define BACKGROUND
+
 
 #include "DrawableObject.h"
 #include "pugixml.hpp"
-#define SIZE 128
+
+
+#include <array>
+
+
+
+constexpr float SIZE = 128.0f;
 
 
 class Background : public DrawableObject {
@@ -12,10 +21,14 @@ public:
 	void draw(sf::RenderWindow& window) override;
 
 private:
+
+
 	sf::Vector2f _movement;
-	bool isMoving[4] = { false, false, false, false };
+	std::array<bool, 4> isMoving = { false, false, false, false };
 	float speed = -5;
 	float invSqr2 = 0.707106f;
 
 	DrawableObject midLayer{ "sky2", { SIZE,SIZE }, "sky2.png" , 12};
 };
+
+#endif BACKGROUND

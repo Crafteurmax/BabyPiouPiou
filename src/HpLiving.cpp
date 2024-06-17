@@ -15,15 +15,6 @@ HpLiving::HpLiving(const pugi::xml_node& node) :
 
 }
 
-HpLiving::HpLiving(const HpLiving& prefab, std::string label) :
-	DrawableObject(prefab,label)
-{
-}
-
-//HpLiving::~HpLiving()
-//{
-//}
-
 bool HpLiving::isDead() const
 {
 	return _health <= 0;
@@ -36,9 +27,12 @@ void HpLiving::damage(float amount)
 
 void HpLiving::update(const sf::Time& elapsedTime)
 {
+	//TODO ADD STUFF
+
+	DrawableObject::update(elapsedTime);
 }
 
-float HpLiving::getHealth()
+float HpLiving::getHealth() const
 {
 	return _health;
 }
