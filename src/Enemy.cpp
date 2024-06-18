@@ -65,7 +65,7 @@ void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position
 	_position = position;
 }
 
-void Enemy::trySpawnProjectiles(const sf::Time& elapsedTime, sf::Vector2f playerPos, std::vector<std::unique_ptr<Projectile>>& projectiles)
+void Enemy::trySpawnProjectiles(const sf::Time& elapsedTime, sf::Vector2f playerPos, std::vector<std::shared_ptr<Projectile>>& projectiles)
 {
 
 	_currentSpellTime -= elapsedTime.asSeconds();

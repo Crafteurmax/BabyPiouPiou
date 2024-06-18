@@ -46,3 +46,8 @@ void Projectile::reset(const sf::Vector2f& refPos) {
 	const auto proj_pos = deltaPos + refPos;
 	setPosition(proj_pos);
 }
+
+void Projectile::kill()
+{
+	_currentLifetime = 0.f;
+}
