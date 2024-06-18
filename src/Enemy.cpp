@@ -63,11 +63,11 @@ void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position
 	_position = position;
 }
 
-std::vector<std::unique_ptr<Projectile>> Enemy::shoot(const sf::Time& elapsedTime, sf::Vector2f playerPos)
+std::vector<std::shared_ptr<Projectile>> Enemy::shoot(const sf::Time& elapsedTime, sf::Vector2f playerPos)
 {
 	int possibleCount = 0;
 	for (float cooldown : _spellCoolDown) if (cooldown <= 0) possibleCount++;
-	if(possibleCount == 0) return std::vector<std::unique_ptr<Projectile>>();
+	if(possibleCount == 0) return std::vector<std::shared_ptr<Projectile>>();
 	int RandomSpell = CoolMath::randomInt(possibleCount);
 
 	for (int i = 0; i < _spellcards.size(); i++) {

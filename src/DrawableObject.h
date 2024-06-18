@@ -15,7 +15,7 @@ public:
 		, const sf::Vector2f pos = {0.f,0.f}, int repeat = 1);
 	virtual ~DrawableObject() = default;
 	virtual void draw(sf::RenderWindow& window);
-	void setPosition(sf::Vector2f& pos);
+	void setPosition(const sf::Vector2f& pos);
 	sf::Vector2f getPosition() const;
 	virtual void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize);
 

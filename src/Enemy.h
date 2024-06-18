@@ -16,7 +16,7 @@ public :
 
 	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	virtual void setupInstance(const std::string& label, const sf::Vector2f& position);
-	std::vector<std::unique_ptr<Projectile>> shoot(const sf::Time& elapsedTime, sf::Vector2f playerPos);
+	std::vector<std::shared_ptr<Projectile>> shoot(const sf::Time& elapsedTime, sf::Vector2f playerPos);
 
 
 protected:
