@@ -21,7 +21,7 @@ private:
 	sf::RenderWindow		mWindow{ sf::VideoMode{WINDOW_WIDTH, WINDOW_HEIGHT}, "BABY", sf::Style::Close };
 	Player					player{};
 	static const sf::Time	TimePerFrame;
-	bool					_isRunning = false;
+	bool					_isRunning = true;
 
 	Background				bg{ {WINDOW_WIDTH,WINDOW_HEIGHT} };
 	Level _level{ "level0" };
@@ -31,6 +31,9 @@ private:
 	std::vector<std::unique_ptr<Enemy>> _currentEnemies;
 
 	bool shoot = false;
+
+	sf::Font font;
+	sf::Text gameoverText;
 
 	void processEvents();
 	void update(sf::Time delatTime);
