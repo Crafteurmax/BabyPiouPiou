@@ -36,7 +36,7 @@ void DrawableObject::draw(sf::RenderWindow& window)
 	window.draw(_sprite);
 }
 
-void DrawableObject::setPosition(sf::Vector2f& pos)
+void DrawableObject::setPosition(const sf::Vector2f& pos)
 {
 	_position = pos;
 }
