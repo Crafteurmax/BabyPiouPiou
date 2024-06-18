@@ -44,3 +44,13 @@ void Player::resetCooldown()
 {
     normalShootCooldown = 0.2f;
 }
+
+bool Player::takeHit(sf::Vector2f bulletPos)
+{
+    sf::Vector2f direction = getOffsetPosition() - bulletPos;
+    float norme = CoolMath::norme(direction);
+
+    if (norme > hitBoxSize) return false;
+    damage(10);
+    return false;
+}
