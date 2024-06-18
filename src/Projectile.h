@@ -16,6 +16,7 @@ public:
 		sf::Vector2f acc = { 0.f,0.f }, sf::Vector2f aco = { 0.f,0.f });
 	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	void reset(const sf::Vector2f& refPos);
+	void kill();
 
 	bool isDead() const;
 

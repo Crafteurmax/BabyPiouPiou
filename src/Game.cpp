@@ -77,15 +77,21 @@ void Game::update(sf::Time deltaTime)
 	for (const auto& bullet : bullets)
 	{
 		bullet->update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
+		if(player.takeHit(bullet->getOffsetPosition())) bullet->kill();
 	}
 
 
 	if (shoot && player.getCooldown() <= 0) {
 		bullets.push_back(std::make_shared<Projectile>(
-			Projectile(120.f, ProjectileType::FROM_PLAYER,
+			Projectile(2.f, ProjectileType::FROM_PLAYER,
 				player.getOffsetPosition() + sf::Vector2f(-0.f, -1.f) * 50.f + sf::Vector2f(-16.f, 0.f), { 0.f,-400.f })));
 		player.resetCooldown();
 	}
+
+	std::vector<std::shared_ptr<Projectile>> filteredBullets;
+	std::copy_if(bullets.begin(), bullets.end(), std::back_inserter(filteredBullets),
+		[](std::shared_ptr<Projectile> bullet) {return !bullet->isDead(); });
+	bullets = filteredBullets;
 }
 
 void Game::render()
