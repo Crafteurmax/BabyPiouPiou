@@ -27,7 +27,7 @@ public:
 	std::shared_ptr<Projectile> clone() { return std::make_shared<Projectile>(*this);  };
 
 private:
-
+	//TODO : enlever les variables inutiles ici
 	ProjectileType _projectileType;
 	float _currentLifetime;
 	sf::Vector2f currentVit;

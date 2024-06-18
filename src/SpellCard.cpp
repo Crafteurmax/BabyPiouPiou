@@ -8,7 +8,7 @@ SpellCard::SpellCard(pugi::xml_node node) : _label(node.attribute("label").as_st
 
 }
 
-float SpellCard::spawnSpell(std::vector<std::shared_ptr<Projectile>>& currentProjectiles, const sf::Vector2f& refPos)
+float SpellCard::spawnSpell(std::vector<std::shared_ptr<Projectile>>& currentProjectiles, const sf::Vector2f& refPos) const
 {
 	for (const auto proj : _projectiles) {
 		auto projInstance = proj->clone();
@@ -16,10 +16,5 @@ float SpellCard::spawnSpell(std::vector<std::shared_ptr<Projectile>>& currentPro
 		currentProjectiles.push_back(std::move(projInstance));
 	}
 
-	return _delay;
-}
-
-float SpellCard::getDelay() const
-{
 	return _delay;
 }

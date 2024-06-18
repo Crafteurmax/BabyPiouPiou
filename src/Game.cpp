@@ -144,6 +144,7 @@ void Game::purgeBullets()
 void Game::purgeEnemies()
 {
 	// purge enemy
+	//TODO : use iterator, si on a le temps
 	for (int i = static_cast<int>(_currentEnemies.size()) - 1; i >= 0; i--) {
 		if (_currentEnemies[i]->isDead()) _currentEnemies.erase(_currentEnemies.begin() + i);
 	}

@@ -18,7 +18,7 @@ private:
 	std::array<bool, 4> isMoving = { false, false, false, false };
 	float speed = 100;
 	float invSqr2 = 0.707106f;
-	float normalShootCooldown;
+	float normalShootCooldown = 0.1f;
 };
 
 
