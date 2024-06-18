@@ -52,5 +52,5 @@ bool Player::takeHit(sf::Vector2f bulletPos)
 
     if (norme > hitBoxSize) return false;
     damage(10);
-    return false;
+    return true;
 }
