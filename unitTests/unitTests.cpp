@@ -2,6 +2,10 @@
 #include <Player.h>
 #include "SFML/Graphics.hpp"
 
+/*
+C:\Users\Maxime_Sansane\Desktop\BabyPiouPiou\unitTests\resources\sprites\chat.png
+													 ./resources/sprites/chat.png
+*/
 
 TEST(EmptyTest, UnitTest) {
 	EXPECT_EQ(true, true);
@@ -15,7 +19,7 @@ TEST(PlayerMovement, test1) {
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
 	sf::Time deltaTime = sf::Time(sf::microseconds(1));
-	player.update(deltaTime);
+	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
 }
@@ -29,14 +33,14 @@ TEST(PlayerMovement, test2) {
 
 	player.handlePlayerInput(sf::Keyboard::Z, true);
 	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
-	player.update(deltaTime);
+	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, -0.1f);
 
 	player.handlePlayerInput(sf::Keyboard::Z, false);
 	deltaTime = sf::Time(sf::microseconds(1));
-	player.update(deltaTime);
+	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, -0.1f);
@@ -51,14 +55,14 @@ TEST(PlayerMovement, test3) {
 
 	player.handlePlayerInput(sf::Keyboard::S, true);
 	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
-	player.update(deltaTime);
+	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, 0.1f);
 
 	player.handlePlayerInput(sf::Keyboard::S, false);
 	deltaTime = sf::Time(sf::microseconds(1));
-	player.update(deltaTime);
+	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, 0.1f);
@@ -73,14 +77,14 @@ TEST(PlayerMovement, test4) {
 
 	player.handlePlayerInput(sf::Keyboard::Q, true);
 	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
-	player.update(deltaTime);
+	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, -0.1f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
 
 	player.handlePlayerInput(sf::Keyboard::Q, false);
 	deltaTime = sf::Time(sf::microseconds(1));
-	player.update(deltaTime);
+	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, -0.1f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
@@ -95,14 +99,14 @@ TEST(PlayerMovement, test5) {
 
 	player.handlePlayerInput(sf::Keyboard::D, true);
 	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
-	player.update(deltaTime);
+	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 0.1f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
 
 	player.handlePlayerInput(sf::Keyboard::D, false);
 	deltaTime = sf::Time(sf::microseconds(1));
-	player.update(deltaTime);
+	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 0.1f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
