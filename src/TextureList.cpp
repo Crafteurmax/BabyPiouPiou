@@ -24,7 +24,6 @@ const std::shared_ptr<sf::Texture> TextureList::getTexture(const std::string& te
 		std::cerr << "Texture not found : " << pathToSprite + textureName << std::endl;
 		return std::shared_ptr<sf::Texture>();
 	}
-	texture->setSmooth(true);
 	texture->setRepeated(true);
 
 	_textures.try_emplace(textureName, static_cast<std::weak_ptr<sf::Texture>>(texture));
