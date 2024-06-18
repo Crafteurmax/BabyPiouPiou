@@ -6,7 +6,7 @@
 				<Projectile label="projectile_1" lifetime="5.0" vel_x="10" vel_y="10" delta_x="0" delta_y="0" size_x="10" sprite="bullet.png"/>
 			</Spellcard>
 		</Tank>
-		<Drunk label="drunk_1" size_x="100" size_y="100" sprite="drunk.png" angular_velocity="10" radius="100">
+		<Drunk label="drunk_1" size_x="100" size_y="100" sprite="drunk.png" angular_velocity="1" radius="100">
 			<Spellcard label="spell_2_1" delay="5">
 				<Projectile label="projectile_2_1" lifetime="5.0" vel_x="10" vel_y="10" delta_x="0" delta_y="0" size_x="10" sprite="bullet.png"/>
 			</Spellcard>
