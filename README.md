@@ -1,6 +1,6 @@
 # BabyPiouPiou
 
-controls : 
+##controls : 
 
 move : zqsd  
 
