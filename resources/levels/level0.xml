@@ -1,7 +1,7 @@
 <Level label="level0">
 
 	<Prefabs>
-		<Tank label="tank_1" size_x="50" size_y="50" sprite="tank.png" health="10">
+		<Tank label="tank_1" size_x="128" size_y="128" sprite="tank.png" health="50" speed="15">
 			<Spellcard label="spell_1_1" delay="2">
 				<Projectile label="projectile_1" lifetime="10.0" vel_x="0" vel_y="100" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
 				<Projectile label="projectile_12" lifetime="10.0" vel_x="100" vel_y="0" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
@@ -14,7 +14,7 @@
 
 			</Spellcard>
 		</Tank>
-		<Drunk label="drunk_1" size_x="100" size_y="100" sprite="drunk.png" angular_velocity="1" radius="100" health="10">
+		<Drunk label="drunk_1" size_x="128" size_y="128" sprite="drunk.png" angular_velocity="1" radius="100" health="20" speed="20">
 			<Spellcard label="spell_2_1" delay="5">
 				<Projectile label="projectile_2" lifetime="10.0" vel_x="0" vel_y="10" acc_x="10" acc_y="10" aco_x="-4" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
 				<Projectile label="projectile_22" lifetime="10.0" vel_x="10" vel_y="0" acc_x="-10" acc_y="10" aco_x="0" aco_y="4" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
@@ -26,6 +26,15 @@
 				<Projectile label="projectile_28" lifetime="10.0" vel_x="-7.07" vel_y="-7.07" acc_x="10" acc_y="10" aco_x="0" aco_y="-5" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
 			</Spellcard>
 		</Drunk>
+		<Speeder label="speeder_1" size_x="128" size_y="128" sprite="speeder.png" health="20" speed="30">
+			<Spellcard label="spell_2_1" delay="5">
+				<Projectile label="projectile_3" lifetime="10.0" vel_x="0" vel_y="20" acc_x="0" acc_y="10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+				<Projectile label="projectile_32" lifetime="10.0" vel_x="0" vel_y="-20" acc_x="0" acc_y="-10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+				<Projectile label="projectile_33" lifetime="10.0" vel_x="20" vel_y="0" acc_x="10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+				<Projectile label="projectile_34" lifetime="10.0" vel_x="-20" vel_y="0" acc_x="-10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+			</Spellcard>
+		</Speeder>
+		
 	</Prefabs>
 
 	<Waves>
@@ -42,6 +51,8 @@
 			<Enemy label="test_enemy13" ref="tank_1" pos_x="400" pos_y="200" />
 			<Enemy label="test_enemy14" ref="tank_1" pos_x="500" pos_y="200" />
 			<Enemy label="test_enemy15" ref="tank_1" pos_x="600" pos_y="200" />
+			<Enemy label="test_enemy16" ref="speeder_1" pos_x="300" pos_y="300" />
+			<Enemy label="test_enemy16" ref="speeder_1" pos_x="500" pos_y="300" />
 		</Wave>
 	</Waves>
 
