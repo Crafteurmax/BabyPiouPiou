@@ -26,12 +26,12 @@
 				<Projectile label="projectile_28" lifetime="10.0" vel_x="-7.07" vel_y="-7.07" acc_x="10" acc_y="10" aco_x="0" aco_y="-5" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
 			</Spellcard>
 		</Drunk>
-		<Speeder label="speeder_1" size_x="128" size_y="128" sprite="speeder.png" health="20" speed="30">
-			<Spellcard label="spell_2_1" delay="5">
-				<Projectile label="projectile_3" lifetime="10.0" vel_x="0" vel_y="20" acc_x="0" acc_y="10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_32" lifetime="10.0" vel_x="0" vel_y="-20" acc_x="0" acc_y="-10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_33" lifetime="10.0" vel_x="20" vel_y="0" acc_x="10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_34" lifetime="10.0" vel_x="-20" vel_y="0" acc_x="-10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+		<Speeder label="speeder_1" size_x="128" size_y="128" sprite="speeder.png" health="20" speed="60">
+			<Spellcard label="spell_2_1" delay="1.5">
+				<Projectile label="projectile_3" lifetime="10.0" vel_x="0" vel_y="40" acc_x="0" acc_y="10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+				<Projectile label="projectile_32" lifetime="10.0" vel_x="0" vel_y="-40" acc_x="0" acc_y="-10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+				<Projectile label="projectile_33" lifetime="10.0" vel_x="40" vel_y="0" acc_x="10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+				<Projectile label="projectile_34" lifetime="10.0" vel_x="-40" vel_y="0" acc_x="-10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
 			</Spellcard>
 		</Speeder>
 		
