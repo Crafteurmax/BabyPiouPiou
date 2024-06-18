@@ -2,5 +2,6 @@
 
 controls : 
 
-move : zqsd
+move : zqsd  
+
 shoot : space
