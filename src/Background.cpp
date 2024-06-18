@@ -2,8 +2,8 @@
 
 
 Background::Background(sf::Vector2f screenSize) :
-    DrawableObject("sky", { SIZE,SIZE }, "sky.png", static_cast<int>(std::max(screenSize.x, screenSize.y) / SIZE)*3),
-    midLayer( "sky2", { SIZE,SIZE }, "sky2.png" , static_cast<int>(std::max(screenSize.x, screenSize.y) / SIZE) * 3)
+    DrawableObject("sky", { SIZE,SIZE }, "sky.png", { 0.f,0.f }, static_cast<int>(std::max(screenSize.x, screenSize.y) / SIZE) * 3),
+    midLayer( "sky2", { SIZE,SIZE }, "sky2.png", { 0.f,0.f }, static_cast<int>(std::max(screenSize.x, screenSize.y) / SIZE) * 3)
 {  
 }
 

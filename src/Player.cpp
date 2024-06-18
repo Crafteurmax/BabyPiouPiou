@@ -7,6 +7,7 @@ Player::Player() :
 }
 
 void Player::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
+    normalShootCooldown -= elapsedTime.asSeconds();
     sf::Vector2f movement(0.f, 0.f);
     if (isMoving[0])
         movement.y -= 1;
@@ -32,4 +33,14 @@ void Player::handlePlayerInput(const sf::Keyboard::Key& key, const bool& isPress
         isMoving[2] = isPressed;
     else if (key == sf::Keyboard::D)
         isMoving[3] = isPressed;
+}
+
+float Player::getCooldown()
+{
+    return normalShootCooldown;
+}
+
+void Player::resetCooldown()
+{
+    normalShootCooldown = 0.2f;
 }

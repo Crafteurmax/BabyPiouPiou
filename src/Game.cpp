@@ -41,11 +41,13 @@ void Game::processEvents()
 		case sf::Event::KeyPressed:
 			player.handlePlayerInput(event.key.code, true);
 			bg.handlePlayerInput(event.key.code, true);
+			if (event.key.code == sf::Keyboard::Space) shoot = true;
 			break;
 
 		case sf::Event::KeyReleased:
 			player.handlePlayerInput(event.key.code, false);
 			bg.handlePlayerInput(event.key.code, false);
+			if (event.key.code == sf::Keyboard::Space) shoot = false;
 			break;
 
 		case sf::Event::MouseButtonReleased:
@@ -73,6 +75,14 @@ void Game::update(sf::Time deltaTime)
 	bg.update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
 	for (const auto& enemy : _currentEnemies) enemy->update(deltaTime,player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT});
 	for (const auto& bullet : bullets) bullet->update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
+
+
+	if (shoot && player.getCooldown() <= 0) {
+		bullets.push_back(std::make_unique<Projectile>(
+			Projectile(120.f, ProjectileType::FROM_PLAYER,
+				player.getOffsetPosition() + sf::Vector2f(0.f, -1.f) * 50.f, { 0.f,-400.f })));
+		player.resetCooldown();
+	}
 }
 
 void Game::render()

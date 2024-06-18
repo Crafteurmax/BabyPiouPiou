@@ -11,7 +11,8 @@ public:
 	DrawableObject(const DrawableObject& other) = default;
 
 	explicit DrawableObject(const pugi::xml_node& node);
-	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName, int repeat = 1);
+	DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName
+		, const sf::Vector2f pos = {0.f,0.f}, int repeat = 1);
 	virtual ~DrawableObject() = default;
 	virtual void draw(sf::RenderWindow& window);
 	void setPosition(sf::Vector2f& pos);
