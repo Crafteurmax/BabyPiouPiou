@@ -14,8 +14,7 @@ TEST(EmptyTest, UnitTest) {
 
 TEST(PlayerMovement, test1) {
 	Player player;
-	sf::Vector2f vectorNull(0, 0);
-	player.setPosition(vectorNull);
+	player.setPosition({ 0.f, 0.f });
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
 	sf::Time deltaTime = sf::Time(sf::microseconds(1));
@@ -26,24 +25,23 @@ TEST(PlayerMovement, test1) {
 
 TEST(PlayerMovement, test2) {
 	Player player;
-	sf::Vector2f vectorNull(0, 0);
-	player.setPosition(vectorNull);
-	EXPECT_EQ(player.getPosition().x, 0.f);
-	EXPECT_EQ(player.getPosition().y, 0.f);
+	player.setPosition({ 250.f, 250.f });
+	EXPECT_EQ(player.getPosition().x, 250.f);
+	EXPECT_EQ(player.getPosition().y, 250.f);
 
 	player.handlePlayerInput(sf::Keyboard::Z, true);
 	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
-	EXPECT_EQ(player.getPosition().x, 0.f);
-	EXPECT_EQ(player.getPosition().y, -0.1f);
+	EXPECT_EQ(player.getPosition().x, 250.f);
+	EXPECT_EQ(player.getPosition().y, 249.9f);
 
 	player.handlePlayerInput(sf::Keyboard::Z, false);
 	deltaTime = sf::Time(sf::microseconds(1));
 	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
-	EXPECT_EQ(player.getPosition().x, 0.f);
-	EXPECT_EQ(player.getPosition().y, -0.1f);
+	EXPECT_EQ(player.getPosition().x, 250.f);
+	EXPECT_EQ(player.getPosition().y, 249.9f);
 }
 
 TEST(PlayerMovement, test3) {
@@ -70,30 +68,28 @@ TEST(PlayerMovement, test3) {
 
 TEST(PlayerMovement, test4) {
 	Player player;
-	sf::Vector2f vectorNull(0, 0);
-	player.setPosition(vectorNull);
-	EXPECT_EQ(player.getPosition().x, 0.f);
-	EXPECT_EQ(player.getPosition().y, 0.f);
+	player.setPosition({ 250.f,250.f });
+	EXPECT_EQ(player.getPosition().x, 250.f);
+	EXPECT_EQ(player.getPosition().y, 250.f);
 
 	player.handlePlayerInput(sf::Keyboard::Q, true);
 	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
-	EXPECT_EQ(player.getPosition().x, -0.1f);
-	EXPECT_EQ(player.getPosition().y, 0.f);
+	EXPECT_EQ(player.getPosition().x, 249.9f);
+	EXPECT_EQ(player.getPosition().y, 250.f);
 
 	player.handlePlayerInput(sf::Keyboard::Q, false);
 	deltaTime = sf::Time(sf::microseconds(1));
 	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
-	EXPECT_EQ(player.getPosition().x, -0.1f);
-	EXPECT_EQ(player.getPosition().y, 0.f);
+	EXPECT_EQ(player.getPosition().x, 249.9f);
+	EXPECT_EQ(player.getPosition().y, 250.f);
 }
 
 TEST(PlayerMovement, test5) {
 	Player player;
-	sf::Vector2f vectorNull(0, 0);
-	player.setPosition(vectorNull);
+	player.setPosition({ 0.f, 0.f });
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
 

@@ -21,6 +21,10 @@ void Player::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vec
     if (movement.x != 0 && movement.y != 0) movement *= invSqr2;
     
     _position += movement * elapsedTime.asSeconds() * speed;
+
+    _position.x = std::clamp(_position.x, 0.f, screenSize.x - _size.x);
+    _position.y = std::clamp(_position.y, 0.f, screenSize.y - _size.y);
+
     _sprite.setPosition(_position);
 }
 
