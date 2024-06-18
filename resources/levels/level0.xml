@@ -3,35 +3,35 @@
 	<Prefabs>
 		<Tank label="tank_1" size_x="128" size_y="128" sprite="tank.png" health="50" speed="15">
 			<Spellcard label="spell_1_1" delay="2">
-				<Projectile label="projectile_1" lifetime="10.0" vel_x="0" vel_y="100" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_12" lifetime="10.0" vel_x="100" vel_y="0" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_13" lifetime="10.0" vel_x="0" vel_y="-100" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_14" lifetime="10.0" vel_x="-100" vel_y="0" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_15" lifetime="10.0" vel_x="-70.7" vel_y="70.7" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_16" lifetime="10.0" vel_x="70.7" vel_y="70.7" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_17" lifetime="10.0" vel_x="70.7" vel_y="-70.7" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_18" lifetime="10.0" vel_x="-70.7" vel_y="-70.7" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+				<Projectile label="projectile_1" lifetime="10.0" vel_x="0" vel_y="100" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletTank.png"/>
+				<Projectile label="projectile_12" lifetime="10.0" vel_x="100" vel_y="0" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletTank.png"/>
+				<Projectile label="projectile_13" lifetime="10.0" vel_x="0" vel_y="-100" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletTank.png"/>
+				<Projectile label="projectile_14" lifetime="10.0" vel_x="-100" vel_y="0" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletTank.png"/>
+				<Projectile label="projectile_15" lifetime="10.0" vel_x="-70.7" vel_y="70.7" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletTank.png"/>
+				<Projectile label="projectile_16" lifetime="10.0" vel_x="70.7" vel_y="70.7" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletTank.png"/>
+				<Projectile label="projectile_17" lifetime="10.0" vel_x="70.7" vel_y="-70.7" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletTank.png"/>
+				<Projectile label="projectile_18" lifetime="10.0" vel_x="-70.7" vel_y="-70.7" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletTank.png"/>
 
 			</Spellcard>
 		</Tank>
 		<Drunk label="drunk_1" size_x="128" size_y="128" sprite="drunk.png" angular_velocity="1" radius="100" health="20" speed="20">
 			<Spellcard label="spell_2_1" delay="5">
-				<Projectile label="projectile_2" lifetime="10.0" vel_x="0" vel_y="10" acc_x="10" acc_y="10" aco_x="-4" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_22" lifetime="10.0" vel_x="10" vel_y="0" acc_x="-10" acc_y="10" aco_x="0" aco_y="4" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_23" lifetime="10.0" vel_x="0" vel_y="-10" acc_x="10" acc_y="-10" aco_x="3" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_24" lifetime="10.0" vel_x="-10" vel_y="0" acc_x="-10" acc_y="10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_25" lifetime="10.0" vel_x="-7.07" vel_y="7.07" acc_x="10" acc_y="-10" aco_x="7" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_26" lifetime="10.0" vel_x="7.07" vel_y="7.07" acc_x="-10" acc_y="10" aco_x="0" aco_y="8" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_27" lifetime="10.0" vel_x="7.07" vel_y="-7.07" acc_x="-10" acc_y="-10" aco_x="5" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_28" lifetime="10.0" vel_x="-7.07" vel_y="-7.07" acc_x="10" acc_y="10" aco_x="0" aco_y="-5" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+				<Projectile label="projectile_2" lifetime="10.0" vel_x="0" vel_y="10" acc_x="10" acc_y="10" aco_x="-4" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletDrunk.png"/>
+				<Projectile label="projectile_22" lifetime="10.0" vel_x="10" vel_y="0" acc_x="-10" acc_y="10" aco_x="0" aco_y="4" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletDrunk.png"/>
+				<Projectile label="projectile_23" lifetime="10.0" vel_x="0" vel_y="-10" acc_x="10" acc_y="-10" aco_x="3" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletDrunk.png"/>
+				<Projectile label="projectile_24" lifetime="10.0" vel_x="-10" vel_y="0" acc_x="-10" acc_y="10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletDrunk.png"/>
+				<Projectile label="projectile_25" lifetime="10.0" vel_x="-7.07" vel_y="7.07" acc_x="10" acc_y="-10" aco_x="7" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletDrunk.png"/>
+				<Projectile label="projectile_26" lifetime="10.0" vel_x="7.07" vel_y="7.07" acc_x="-10" acc_y="10" aco_x="0" aco_y="8" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletDrunk.png"/>
+				<Projectile label="projectile_27" lifetime="10.0" vel_x="7.07" vel_y="-7.07" acc_x="-10" acc_y="-10" aco_x="5" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletDrunk.png"/>
+				<Projectile label="projectile_28" lifetime="10.0" vel_x="-7.07" vel_y="-7.07" acc_x="10" acc_y="10" aco_x="0" aco_y="-5" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletDrunk.png"/>
 			</Spellcard>
 		</Drunk>
-		<Speeder label="speeder_1" size_x="128" size_y="128" sprite="speeder.png" health="20" speed="30">
-			<Spellcard label="spell_2_1" delay="5">
-				<Projectile label="projectile_3" lifetime="10.0" vel_x="0" vel_y="20" acc_x="0" acc_y="10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_32" lifetime="10.0" vel_x="0" vel_y="-20" acc_x="0" acc_y="-10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_33" lifetime="10.0" vel_x="20" vel_y="0" acc_x="10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
-				<Projectile label="projectile_34" lifetime="10.0" vel_x="-20" vel_y="0" acc_x="-10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+		<Speeder label="speeder_1" size_x="128" size_y="128" sprite="speeder.png" health="20" speed="60">
+			<Spellcard label="spell_2_1" delay="1.5">
+				<Projectile label="projectile_3" lifetime="10.0" vel_x="0" vel_y="40" acc_x="0" acc_y="10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletSpeeder.png"/>
+				<Projectile label="projectile_32" lifetime="10.0" vel_x="0" vel_y="-40" acc_x="0" acc_y="-10" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletSpeeder.png"/>
+				<Projectile label="projectile_33" lifetime="10.0" vel_x="40" vel_y="0" acc_x="10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletSpeeder.png"/>
+				<Projectile label="projectile_34" lifetime="10.0" vel_x="-40" vel_y="0" acc_x="-10" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bulletSpeeder.png"/>
 			</Spellcard>
 		</Speeder>
 		
