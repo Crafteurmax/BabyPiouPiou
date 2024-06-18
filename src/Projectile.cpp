@@ -52,7 +52,7 @@ void Projectile::kill()
 	_currentLifetime = 0.f;
 }
 
-ProjectileType Projectile::getType()
+ProjectileType Projectile::getType() const
 {
 	return _projectileType;
 }

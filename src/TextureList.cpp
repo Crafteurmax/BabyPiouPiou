@@ -3,16 +3,14 @@
 #include <iostream>
 
 const std::string pathToSprite = "./resources/sprites/";
-TextureList TextureList::_textureList;
 
-TextureList::TextureList()
-{
-	_textureList = *this;
-}
+std::map<std::string, std::weak_ptr<sf::Texture>, std::less<>> TextureList::_textures;
 
 const std::shared_ptr<sf::Texture> TextureList::getTexture(const std::string& textureName)
-{ //Dans le cas de multithread, il faudrait faire attention ici, mais c'est pas notre cas
-	if (const auto textureIterator = _textureList._textures.find(textureName); textureIterator != _textureList._textures.end()) {
+{ 
+
+	//Dans le cas de multithread, il faudrait faire attention ici, mais c'est pas notre cas
+	if (const auto textureIterator = _textures.find(textureName); textureIterator != _textures.end()) {
 		return textureIterator->second.lock();
 	}
 
@@ -24,11 +22,12 @@ const std::shared_ptr<sf::Texture> TextureList::getTexture(const std::string& te
 	{
 		// handle error
 		std::cerr << "Texture not found : " << pathToSprite + textureName << std::endl;
+		return std::shared_ptr<sf::Texture>();
 	}
 	texture->setSmooth(true);
 	texture->setRepeated(true);
 
-	_textureList._textures.try_emplace(textureName, static_cast<std::weak_ptr<sf::Texture>>(texture));
+	_textures.try_emplace(textureName, static_cast<std::weak_ptr<sf::Texture>>(texture));
 
 	return texture;
 }
