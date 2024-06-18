@@ -2,13 +2,13 @@
 
 	<Prefabs>
 		<Tank label="tank_1" size_x="50" size_y="50" sprite="tank.png">
-			<Spellcard label="spell_1_1" delay="5">
-				<Projectile label="projectile_1" lifetime="5.0" vel_x="30" vel_y="30" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
+			<Spellcard label="spell_1_1" delay="1">
+				<Projectile label="projectile_1" lifetime="5.0" vel_x="30" vel_y="30" acc_x="-20" acc_y="0" aco_x="0" aco_y="-25" delta_x="0" delta_y="0" size_x="50" size_y="50" sprite="bullet.png"/>
 			</Spellcard>
 		</Tank>
 		<Drunk label="drunk_1" size_x="100" size_y="100" sprite="drunk.png" angular_velocity="1" radius="100">
-			<Spellcard label="spell_2_1" delay="5">
-				<Projectile label="projectile_2_1" lifetime="5.0" vel_x="30" vel_y="30" acc_x="0" acc_y="0" aco_x="0" aco_y="0" delta_x="100" delta_y="100" size_x="50" size_y="50" sprite="bullet.png"/>
+			<Spellcard label="spell_2_1" delay="1">
+				<Projectile label="projectile_2_1" lifetime="5.0" vel_x="30" vel_y="30" acc_x="0" acc_y="-30" aco_x="-14" aco_y="0" delta_x="100" delta_y="100" size_x="50" size_y="50" sprite="bullet.png"/>
 			</Spellcard>
 		</Drunk>
 	</Prefabs>

@@ -11,7 +11,7 @@ enum class ProjectileType {
 
 class Projectile : public DrawableObject {
 public:
-
+	explicit Projectile(const Projectile& other) = default;
 
 
 	explicit Projectile(const pugi::xml_node& node);
@@ -21,6 +21,8 @@ public:
 	void reset(const sf::Vector2f& refPos);
 
 	bool isDead() const;
+
+	std::unique_ptr<Projectile> clone() { return std::make_unique<Projectile>(*this);  };
 
 private:
 
