@@ -1,4 +1,5 @@
-#pragma once
+#ifndef HP_LIVING
+#define HP_LIVING
 
 #include "DrawableObject.h"
 #include "pugixml.hpp"
@@ -13,7 +14,6 @@ public:
 	~HpLiving() override = default;
 	bool isDead() const;
 	void damage(float amount);
-	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	float getHealth() const;
 	bool takeHit(sf::Vector2f bulletPos);
 
@@ -21,3 +21,5 @@ private:
 	float _health;
 	float hitBoxSize = 10;
 };
+
+#endif

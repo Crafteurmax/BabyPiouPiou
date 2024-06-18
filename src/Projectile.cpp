@@ -2,10 +2,10 @@
 #include <iostream>
 
 Projectile::Projectile(const pugi::xml_node& node) : DrawableObject(node),
-_beginLifetime(node.attribute("lifetime").as_float()),
-beginVit(sf::Vector2f{ node.attribute("vel_x").as_float(), node.attribute("vel_y").as_float() }),
-beginAcc(sf::Vector2f{ node.attribute("acc_x").as_float(), node.attribute("acc_y").as_float() }),
-beginAco(sf::Vector2f{ node.attribute("aco_x").as_float(), node.attribute("aco_y").as_float() }),
+_currentLifetime(node.attribute("lifetime").as_float()),
+currentVit(sf::Vector2f{ node.attribute("vel_x").as_float(), node.attribute("vel_y").as_float() }),
+currentAcc(sf::Vector2f{ node.attribute("acc_x").as_float(), node.attribute("acc_y").as_float() }),
+currentAco(sf::Vector2f{ node.attribute("aco_x").as_float(), node.attribute("aco_y").as_float() }),
 deltaPos(sf::Vector2f{ node.attribute("delta_x").as_float(), node.attribute("delta_y").as_float() })
 {
 	//delta pos
@@ -17,8 +17,8 @@ Projectile::Projectile(float lifetime, ProjectileType projectileType, sf::Vector
 	sf::Vector2f vit, sf::Vector2f acc, sf::Vector2f aco) :
 
 	DrawableObject("projectile", {32.f,32.f}, "bullet.png", pos),
-	_projectileType(projectileType), _beginLifetime(lifetime),
-	beginVit(vit), beginAcc(acc), beginAco(aco)
+	_projectileType(projectileType), _currentLifetime(lifetime),
+	currentVit(vit), currentAcc(acc), currentAco(aco)
 {
 	reset(pos);
 }
@@ -39,10 +39,6 @@ bool Projectile::isDead() const {
 }
 
 void Projectile::reset(const sf::Vector2f& refPos) {
-	_currentLifetime = _beginLifetime;
-	currentVit = beginVit;
-	currentAcc = beginAcc;
-	currentAco = beginAco;
 	const auto proj_pos = deltaPos + refPos;
 	setPosition(proj_pos);
 }

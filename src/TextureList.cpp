@@ -6,7 +6,7 @@ const std::string pathToSprite = "./resources/sprites/";
 
 std::map<std::string, std::weak_ptr<sf::Texture>, std::less<>> TextureList::_textures;
 
-const std::shared_ptr<sf::Texture> TextureList::getTexture(const std::string& textureName)
+std::shared_ptr<sf::Texture> TextureList::getTexture(const std::string& textureName)
 { 
 
 	//Dans le cas de multithread, il faudrait faire attention ici, mais c'est pas notre cas

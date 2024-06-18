@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME
+#define GAME
 
 #include "SFML/Graphics.hpp"
 #include "Player.h"
@@ -49,5 +50,8 @@ private:
 	void purgeEnemies();
 
 	void render();
+	void damageEnemy(Enemy& enemy, Projectile& bullet) const;
 
 };
+
+#endif

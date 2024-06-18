@@ -1,7 +1,9 @@
 #include "Enemy.h"
 
 Enemy::Enemy(const pugi::xml_node& node): 
-	HpLiving(node)
+	HpLiving(node),
+	speed(node.attribute("speed").as_float(10)),
+	distance(node.attribute("distance").as_float(100))
 {
 	std::cout << "Called 1 new : " << getLabel() << std::endl;
 
@@ -65,7 +67,7 @@ void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position
 	_position = position;
 }
 
-void Enemy::trySpawnProjectiles(const sf::Time& elapsedTime, sf::Vector2f playerPos, std::vector<std::shared_ptr<Projectile>>& projectiles)
+void Enemy::trySpawnProjectiles(const sf::Time& elapsedTime, std::vector<std::shared_ptr<Projectile>>& projectiles)
 {
 
 	_currentSpellTime -= elapsedTime.asSeconds();

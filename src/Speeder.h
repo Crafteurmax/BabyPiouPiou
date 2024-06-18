@@ -10,10 +10,6 @@ public:
 	Speeder(const Speeder& other) = default;
 	explicit Speeder(const pugi::xml_node& node);
 
-
-private:
-
-
 };
 
 

@@ -2,6 +2,7 @@
 #include "SFML/Graphics.hpp"
 #include <DrawableObject.h>
 
+
 const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
 
 
@@ -12,7 +13,7 @@ Game::Game()
 
 	// on centre le message de gameover
 	gameoverText.setOrigin(gameoverText.getGlobalBounds().getSize() / 2.f + gameoverText.getLocalBounds().getPosition());
-	gameoverText.setPosition(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
+	gameoverText.setPosition(static_cast<float>(WINDOW_WIDTH) / 2, static_cast<float>(WINDOW_HEIGHT) / 2);
 }
 
 void Game::run()
@@ -98,7 +99,7 @@ void Game::enemiesUpdate(sf::Time deltaTime)
 {
 	for (const auto& enemy : _currentEnemies) {
 		enemy->update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
-		enemy->trySpawnProjectiles(deltaTime, player.getOffsetPosition(), bullets);
+		enemy->trySpawnProjectiles(deltaTime, bullets);
 	}
 }
 
@@ -108,9 +109,17 @@ void Game::bulletsUpdate(sf::Time deltaTime)
 	{
 		bullet->update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
 		if (player.takeHit(bullet->getOffsetPosition())) bullet->kill();
-		if (bullet->getType() == ProjectileType::FROM_PLAYER) for (const auto& enemy : _currentEnemies)
-			if (enemy->takeHit(bullet->getOffsetPosition())) bullet->kill();
+		if (bullet->getType() == ProjectileType::FROM_PLAYER) {
+			for (const auto& enemy : _currentEnemies) {
+				damageEnemy(*enemy, *bullet);
+			}
+				
+		}
 	}
+}
+
+void Game::damageEnemy(Enemy& enemy, Projectile& bullet) const {
+	if (enemy.takeHit(bullet.getOffsetPosition())) bullet.kill();
 }
 
 void Game::tryShoot()
@@ -135,7 +144,8 @@ void Game::purgeBullets()
 void Game::purgeEnemies()
 {
 	// purge enemy
-	for (int i = _currentEnemies.size() - 1; i >= 0; i--) {
+	//TODO : use iterator, si on a le temps
+	for (int i = static_cast<int>(_currentEnemies.size()) - 1; i >= 0; i--) {
 		if (_currentEnemies[i]->isDead()) _currentEnemies.erase(_currentEnemies.begin() + i);
 	}
 }

@@ -27,18 +27,11 @@ public:
 	std::shared_ptr<Projectile> clone() { return std::make_shared<Projectile>(*this);  };
 
 private:
-
 	ProjectileType _projectileType;
 	float _currentLifetime;
 	sf::Vector2f currentVit;
 	sf::Vector2f currentAcc;
 	sf::Vector2f currentAco;
-
-
-	float _beginLifetime;
-	sf::Vector2f beginVit;
-	sf::Vector2f beginAcc;
-	sf::Vector2f beginAco;
 	sf::Vector2f deltaPos;
 };
 

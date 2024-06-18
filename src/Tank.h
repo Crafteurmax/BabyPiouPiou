@@ -11,9 +11,6 @@ public:
 	explicit Tank(const pugi::xml_node& node);
 
 
-private:
-
-
 };
 
 

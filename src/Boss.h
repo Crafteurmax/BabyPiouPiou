@@ -10,10 +10,6 @@ public:
 	Boss(const Boss& other) = default;
 	explicit Boss(const pugi::xml_node& node);
 
-
-private:
-
-
 };
 
 

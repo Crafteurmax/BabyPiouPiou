@@ -3,7 +3,6 @@
 Player::Player() :
     HpLiving("player", { 100, 100 }, 10, "chat.png")
 {
-    normalShootCooldown = 0.1f;
 }
 
 void Player::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
