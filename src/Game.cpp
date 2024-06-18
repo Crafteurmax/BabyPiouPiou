@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "SFML/Graphics.hpp"
 #include <DrawableObject.h>
-
+#include <iterator>
 
 const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
 
@@ -144,10 +144,23 @@ void Game::purgeBullets()
 void Game::purgeEnemies()
 {
 	// purge enemy
-	//TODO : use iterator, si on a le temps
-	for (int i = static_cast<int>(_currentEnemies.size()) - 1; i >= 0; i--) {
-		if (_currentEnemies[i]->isDead()) _currentEnemies.erase(_currentEnemies.begin() + i);
+
+	std::vector<std::vector<std::unique_ptr<Enemy>>::iterator> toDelete;
+
+	for (auto currentEnemiesIt = _currentEnemies.begin(); currentEnemiesIt != _currentEnemies.end(); currentEnemiesIt++) {
+		if ((*currentEnemiesIt)->isDead()) {
+			toDelete.push_back(currentEnemiesIt);
+		}
 	}
+
+	for (const auto& enemyIt : toDelete) {
+		_currentEnemies.erase(enemyIt);
+	}
+
+	//C-style way of doing it
+	//for (int i = static_cast<int>(_currentEnemies.size()) - 1; i >= 0; i--) {
+	//	if (_currentEnemies[i]->isDead()) _currentEnemies.erase(_currentEnemies.begin() + i);
+	//}
 }
 
 void Game::render()
