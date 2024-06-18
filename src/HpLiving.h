@@ -2,6 +2,7 @@
 
 #include "DrawableObject.h"
 #include "pugixml.hpp"
+#include "CoolMath.h"
 
 class HpLiving : public DrawableObject {
 public:
@@ -14,6 +15,9 @@ public:
 	void damage(float amount);
 	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	float getHealth() const;
+	bool takeHit(sf::Vector2f bulletPos);
+
 private:
 	float _health;
+	float hitBoxSize = 10;
 };

@@ -2,7 +2,6 @@
 #define PLAYER
 
 #include "HpLiving.h"
-#include "CoolMath.h"
 
 #include <array>
 
@@ -13,7 +12,6 @@ public:
 	void handlePlayerInput(const sf::Keyboard::Key& key, const bool& isPressed);
 	float getCooldown() const;
 	void resetCooldown();
-	bool takeHit(sf::Vector2f bulletPos);
 
 private:
 	sf::Vector2f _movement;
@@ -21,7 +19,6 @@ private:
 	float speed = 100;
 	float invSqr2 = 0.707106f;
 	float normalShootCooldown;
-	float hitBoxSize = 10;
 };
 
 

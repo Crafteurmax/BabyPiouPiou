@@ -20,6 +20,7 @@ public:
 	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	void reset(const sf::Vector2f& refPos);
 	void kill();
+	ProjectileType getType();
 
 	bool isDead() const;
 

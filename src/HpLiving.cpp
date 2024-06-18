@@ -36,3 +36,13 @@ float HpLiving::getHealth() const
 {
 	return _health;
 }
+
+bool HpLiving::takeHit(sf::Vector2f bulletPos)
+{
+	sf::Vector2f direction = getOffsetPosition() - bulletPos;
+	float norme = CoolMath::norme(direction);
+
+	if (norme > hitBoxSize) return false;
+	damage(10);
+	return true;
+}
