@@ -1,8 +1,9 @@
 #include "Player.h"
 
 Player::Player() :
-    HpLiving("player", { 100, 100 }, 10, "chat.png")
+    HpLiving("player", { 128, 128 }, 10, "player.png")
 {
+    _position = { 500.f, 500.f };
 }
 
 void Player::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
