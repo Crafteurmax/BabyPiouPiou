@@ -13,7 +13,7 @@ public:
 	float getDelay();
 
 private:
-	std::vector<Projectile> _projectiles;
+	std::vector<std::shared_ptr<Projectile>> _projectiles;
 	std::string _label;
 	float _delay;
 };

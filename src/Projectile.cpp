@@ -1,7 +1,14 @@
 #include "Projectile.h"
 #include <iostream>
 
-Projectile::Projectile(const pugi::xml_node& node) : DrawableObject(node) {}
+Projectile::Projectile(const pugi::xml_node& node) : DrawableObject(node),
+_lifetime(node.attribute("lifetime").as_float()),
+vit(sf::Vector2f{ node.attribute("vel_x").as_float(), node.attribute("vel_y").as_float() }),
+acc(sf::Vector2f{ node.attribute("acc_x").as_float(), node.attribute("acc_y").as_float() }),
+aco(sf::Vector2f{ node.attribute("aco_x").as_float(), node.attribute("aco_y").as_float() })
+{
+	_projectileType = ProjectileType::FROM_ENEMY;
+}
 
 Projectile::Projectile(float _lifetime, ProjectileType _projectileType, sf::Vector2f pos,
 	sf::Vector2f vit, sf::Vector2f acc, sf::Vector2f aco) :
@@ -19,4 +26,9 @@ void Projectile::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf:
 	vit += acc * elapsedTime.asSeconds();
 	_position += vit * elapsedTime.asSeconds();
 	_sprite.setPosition(_position);
+}
+
+
+bool Projectile::isDead() const {
+	return _lifetime <= 0.0f;
 }
