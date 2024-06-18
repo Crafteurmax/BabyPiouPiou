@@ -20,6 +20,6 @@ Wave::Wave(const pugi::xml_node& node, const std::vector<std::shared_ptr<Enemy>>
 
 void Wave::spawnEnemies(std::vector<std::unique_ptr<Enemy>>& enemies) const {
 	for (const auto& enemyRef : _enemiesRef) {
-		enemies.push_back(enemyRef.spawn());
+		enemies.push_back(enemyRef.spawn()); //On fait spawn un enemy, une copie
 	}
 }

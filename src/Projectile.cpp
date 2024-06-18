@@ -38,6 +38,7 @@ bool Projectile::isDead() const {
 	return _currentLifetime <= 0.0f;
 }
 
+//Reinitialiser la position du projectile par rapport à l'enemi
 void Projectile::reset(const sf::Vector2f& refPos) {
 	const auto proj_pos = deltaPos + refPos;
 	setPosition(proj_pos);

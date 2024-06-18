@@ -7,6 +7,7 @@
 
 #include <vector>
 
+//Vague d'ennemis, contient la liste d'ennemis à instancier (références d'enemis)
 class Wave {
 public:
 	Wave(const pugi::xml_node& node, const std::vector<std::shared_ptr<Enemy>>& enemiesObjects);
