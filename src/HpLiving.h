@@ -1,4 +1,5 @@
-#pragma once
+#ifndef HP_LIVING
+#define HP_LIVING
 
 #include "DrawableObject.h"
 #include "pugixml.hpp"
@@ -20,3 +21,5 @@ private:
 	float _health;
 	float hitBoxSize = 10;
 };
+
+#endif

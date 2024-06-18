@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DRAWABLE_OBJECT
+#define DRAWABLE_OBJECT
 
 #include <string>
 #include <SFML/Graphics.hpp>
@@ -34,3 +35,6 @@ protected: //A éviter la prochaine fois
 	sf::Vector2f _size;
 	sf::Sprite _sprite;
 };
+
+
+#endif
