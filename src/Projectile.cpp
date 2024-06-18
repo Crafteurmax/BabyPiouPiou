@@ -51,3 +51,8 @@ void Projectile::kill()
 {
 	_currentLifetime = 0.f;
 }
+
+ProjectileType Projectile::getType()
+{
+	return _projectileType;
+}

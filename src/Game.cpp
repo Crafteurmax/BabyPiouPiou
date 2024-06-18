@@ -85,6 +85,8 @@ void Game::update(sf::Time deltaTime)
 	{
 		bullet->update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
 		if(player.takeHit(bullet->getOffsetPosition())) bullet->kill();
+		if (bullet->getType() == ProjectileType::FROM_PLAYER) for (const auto& enemy : _currentEnemies) 
+			if (enemy->takeHit(bullet->getOffsetPosition())) bullet->kill();
 	}
 
 
@@ -99,6 +101,10 @@ void Game::update(sf::Time deltaTime)
 	std::copy_if(bullets.begin(), bullets.end(), std::back_inserter(filteredBullets),
 		[](std::shared_ptr<Projectile> bullet) {return !bullet->isDead(); });
 	bullets = filteredBullets;
+
+	for (int i = _currentEnemies.size() - 1; i >= 0; i--) {
+		if (_currentEnemies[i]->isDead()) _currentEnemies.erase(_currentEnemies.begin() + i);
+	}
 }
 
 void Game::render()
