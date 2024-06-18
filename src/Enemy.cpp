@@ -13,6 +13,8 @@ Enemy::Enemy(const pugi::xml_node& node):
 }
 
 void Enemy::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
+
+
 	// on cherche la direction vers le joueur
 	sf::Vector2f direction = playerPos - getOffsetPosition();
 	float norme = CoolMath::norme(direction);
@@ -63,22 +65,20 @@ void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position
 	_position = position;
 }
 
-void Enemy::spawnProjectiles(const sf::Time& elapsedTime, sf::Vector2f playerPos, std::vector<std::shared_ptr<Projectile>>& projectiles)
+void Enemy::trySpawnProjectiles(const sf::Time& elapsedTime, sf::Vector2f playerPos, std::vector<std::shared_ptr<Projectile>>& projectiles)
 {
-	int possibleCount = 0;
-	for (float cooldown : _spellCoolDown) if (cooldown <= 0) possibleCount++;
-	if (possibleCount == 0) {
+
+	_currentSpellTime -= elapsedTime.asSeconds();
+	if (_currentSpellTime > 0) {
 		return;
 	}
-	int RandomSpell = CoolMath::randomInt(possibleCount);
 
-	for (int i = 0; i < _spellcards.size(); i++) {
-		if (_spellCoolDown[i] > 0) continue;
-		RandomSpell--;
-		if (possibleCount != 0) continue;
-
-
-		 _spellcards[i].spawnSpell(projectiles, getPosition());
-		 return;
+	if (_spellcards.empty()) {
+		std::cerr << "ALERT NO SPELL CARD FOR ENEMY : " << getLabel() << std::endl;
 	}
+
+	auto randomIt = _spellcards.begin();
+	std::advance(randomIt, CoolMath::randomInt(static_cast<int>(_spellcards.size()))-1);
+
+	_currentSpellTime = randomIt->spawnSpell(projectiles, _position);
 }

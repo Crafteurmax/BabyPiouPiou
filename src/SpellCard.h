@@ -9,8 +9,8 @@
 class SpellCard {
 public:
 	explicit SpellCard(pugi::xml_node node);
-	void spawnSpell(std::vector<std::shared_ptr<Projectile>>& projectiles, const sf::Vector2f& refPos);
-	float getDelay();
+	float spawnSpell(std::vector<std::shared_ptr<Projectile>>& projectiles, const sf::Vector2f& refPos); //return spell time;
+	float getDelay() const;
 
 private:
 	std::vector<std::shared_ptr<Projectile>> _projectiles;

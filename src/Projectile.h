@@ -11,6 +11,9 @@ enum class ProjectileType {
 
 class Projectile : public DrawableObject {
 public:
+
+
+
 	explicit Projectile(const pugi::xml_node& node);
 	Projectile(float _lifetime, ProjectileType _projectileType, sf::Vector2f pos, sf::Vector2f vit, 
 		sf::Vector2f acc = { 0.f,0.f }, sf::Vector2f aco = { 0.f,0.f });
@@ -20,6 +23,7 @@ public:
 	bool isDead() const;
 
 private:
+
 	ProjectileType _projectileType;
 	float _currentLifetime;
 	sf::Vector2f currentVit;
