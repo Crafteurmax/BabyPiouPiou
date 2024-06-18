@@ -13,7 +13,7 @@ TEST(PlayerMovement, test1) {
 	player.setPosition({ 0.f, 0.f });
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
-	sf::Time deltaTime = sf::Time(sf::microseconds(1));
+	auto deltaTime = sf::Time(sf::microseconds(1));
 	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 	EXPECT_EQ(player.getPosition().x, 0.f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
@@ -26,7 +26,7 @@ TEST(PlayerMovement, test2) {
 	EXPECT_EQ(player.getPosition().y, 250.f);
 
 	player.handlePlayerInput(sf::Keyboard::Z, true);
-	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	auto deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 250.f);
@@ -48,7 +48,7 @@ TEST(PlayerMovement, test3) {
 	EXPECT_EQ(player.getPosition().y, 0.f);
 
 	player.handlePlayerInput(sf::Keyboard::S, true);
-	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	auto deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 0.f);
@@ -69,7 +69,7 @@ TEST(PlayerMovement, test4) {
 	EXPECT_EQ(player.getPosition().y, 250.f);
 
 	player.handlePlayerInput(sf::Keyboard::Q, true);
-	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	auto deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 249.9f);
@@ -90,7 +90,7 @@ TEST(PlayerMovement, test5) {
 	EXPECT_EQ(player.getPosition().y, 0.f);
 
 	player.handlePlayerInput(sf::Keyboard::D, true);
-	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	auto deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, {0.f, 0.f}, {500.f, 500.f});
 
 	EXPECT_EQ(player.getPosition().x, 0.1f);
@@ -111,7 +111,7 @@ TEST(PlayerMovementBlocked, test1) {
 	player.setPosition({ 0.f, 0.f });
 
 	player.handlePlayerInput(sf::Keyboard::Z, true);
-	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	auto deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
 
 	EXPECT_EQ(player.getPosition().x, 0.f);
@@ -123,7 +123,7 @@ TEST(PlayerMovementBlocked, test2) {
 	player.setPosition({ 0.f, 400.f });
 
 	player.handlePlayerInput(sf::Keyboard::S, true);
-	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	auto deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
 
 	EXPECT_EQ(player.getPosition().x, 0.f);
@@ -135,7 +135,7 @@ TEST(PlayerMovementBlocked, test3) {
 	player.setPosition({ 0.f,0.f });
 
 	player.handlePlayerInput(sf::Keyboard::Q, true);
-	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	auto deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
 
 	EXPECT_EQ(player.getPosition().x, 0.f);
@@ -147,7 +147,7 @@ TEST(PlayerMovementBlocked, test4) {
 	player.setPosition({ 400.f,0.f });
 
 	player.handlePlayerInput(sf::Keyboard::Q, true);
-	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	auto deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
 
 	EXPECT_EQ(player.getPosition().x, 399.9f);
