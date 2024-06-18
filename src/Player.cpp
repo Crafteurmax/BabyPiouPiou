@@ -35,7 +35,7 @@ void Player::handlePlayerInput(const sf::Keyboard::Key& key, const bool& isPress
         isMoving[3] = isPressed;
 }
 
-float Player::getCooldown()
+float Player::getCooldown() const
 {
     return normalShootCooldown;
 }

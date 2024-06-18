@@ -78,7 +78,7 @@ void Game::update(sf::Time deltaTime)
 
 
 	if (shoot && player.getCooldown() <= 0) {
-		bullets.push_back(std::make_unique<Projectile>(
+		bullets.push_back(std::make_shared<Projectile>(
 			Projectile(120.f, ProjectileType::FROM_PLAYER,
 				player.getOffsetPosition() + sf::Vector2f(-0.f, -1.f) * 50.f + sf::Vector2f(-16.f, 0.f), { 0.f,-400.f })));
 		player.resetCooldown();

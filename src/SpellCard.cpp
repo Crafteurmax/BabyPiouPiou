@@ -8,9 +8,9 @@ SpellCard::SpellCard(pugi::xml_node node) : _label(node.attribute("label").as_st
 
 }
 
-std::vector<std::unique_ptr<Projectile>> SpellCard::spawnSpell()
+std::vector<std::shared_ptr<Projectile>> SpellCard::spawnSpell()
 {
-	return std::vector<std::unique_ptr<Projectile>>();
+	return std::vector<std::shared_ptr<Projectile>>();
 }
 
 float SpellCard::getDelay()

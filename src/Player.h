@@ -10,7 +10,7 @@ public:
 	Player();
 	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	void handlePlayerInput(const sf::Keyboard::Key& key, const bool& isPressed);
-	float getCooldown();
+	float getCooldown() const;
 	void resetCooldown();
 
 private:
