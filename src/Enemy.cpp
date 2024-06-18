@@ -1,7 +1,9 @@
 #include "Enemy.h"
 
 Enemy::Enemy(const pugi::xml_node& node): 
-	HpLiving(node)
+	HpLiving(node),
+	speed(node.attribute("speed").as_float(10)),
+	distance(node.attribute("distance").as_float(100))
 {
 	std::cout << "Called 1 new : " << getLabel() << std::endl;
 

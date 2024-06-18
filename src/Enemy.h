@@ -20,8 +20,8 @@ public :
 
 
 protected: //A éviter :'(
-	float speed = 10;
-	float distance = 100;
+	float speed;
+	float distance;
 
 private:
 	std::vector<SpellCard> _spellcards;
