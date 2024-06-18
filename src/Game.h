@@ -36,7 +36,18 @@ private:
 	sf::Text gameoverText;
 
 	void processEvents();
-	void update(sf::Time delatTime);
+	void processInputs(const sf::Keyboard::Key& key, const bool& isPressed);
+
+	void update(sf::Time deltaTime);
+	void playerUpdate(sf::Time deltaTime);
+	void enemiesUpdate(sf::Time deltaTime);
+	void bulletsUpdate(sf::Time deltaTime);
+
+	void tryShoot();
+
+	void purgeBullets();
+	void purgeEnemies();
+
 	void render();
 
 };
