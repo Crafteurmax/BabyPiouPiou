@@ -15,7 +15,8 @@ deltaPos(sf::Vector2f{ node.attribute("delta_x").as_float(), node.attribute("del
 
 Projectile::Projectile(float lifetime, ProjectileType projectileType, sf::Vector2f pos,
 	sf::Vector2f vit, sf::Vector2f acc, sf::Vector2f aco) :
-	DrawableObject("projectile", {32.f,32.f}, "bullet.png"),
+
+	DrawableObject("projectile", {32.f,32.f}, "bullet.png", pos),
 	_projectileType(projectileType), _beginLifetime(lifetime),
 	beginVit(vit), beginAcc(acc), beginAco(aco)
 {

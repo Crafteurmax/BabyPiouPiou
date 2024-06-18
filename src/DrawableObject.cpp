@@ -3,8 +3,10 @@
 
 const std::string pathToSprite = "./resources/sprites/";
 
-DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName, int repeat) : _label(label), _size(size)
+DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName,
+	const sf::Vector2f pos, int repeat) : _label(label), _size(size)
 {
+	_position = pos;
 	_texture = std::make_shared<sf::Texture>();
 	//save texture as global because of this : https://www.sfml-dev.org/tutorials/2.6/graphics-sprite.php#the-white-square-problem
 	if (!_texture->loadFromFile(pathToSprite + textureName))
@@ -25,10 +27,10 @@ DrawableObject::DrawableObject(const pugi::xml_node& node)
 {
 
 	const auto label = node.attribute("label").as_string();
-	const auto pos = sf::Vector2f{ node.attribute("size_x").as_float(), node.attribute("size_y").as_float() };
+	const auto size = sf::Vector2f{ node.attribute("size_x").as_float(), node.attribute("size_y").as_float() };
 	const auto sprite = node.attribute("sprite").as_string();
 
-	*this = DrawableObject(label, pos, sprite, 1);
+	*this = DrawableObject(label, size, sprite);
 }
 
 void DrawableObject::draw(sf::RenderWindow& window)
@@ -52,5 +54,5 @@ void DrawableObject::update(const sf::Time& elapsedTime, sf::Vector2f playerPos,
 }
 
 sf::Vector2f DrawableObject::getOffsetPosition() const {
-	return { _position.x + _size.x/2,_position.y + _size.y/2 };
+	return { _position.x + _size.x/2.f,_position.y + _size.y/2.f };
 }

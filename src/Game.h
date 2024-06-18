@@ -30,6 +30,8 @@ private:
 	std::vector<std::unique_ptr<Projectile>> bullets;
 	std::vector<std::unique_ptr<Enemy>> _currentEnemies;
 
+	bool shoot = false;
+
 	void processEvents();
 	void update(sf::Time delatTime);
 	void render();
