@@ -4,9 +4,9 @@
 #include "TextureList.h"
 
 DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName,
-	const sf::Vector2f pos, int repeat) : _label(label), _size(size)
+	const sf::Vector2f pos, int repeat) : _label(label), _position(pos), _size(size)
 {
-	_position = pos;
+	
 	_texture = TextureList::getTexture(textureName);
 	if(repeat != 1) _sprite.setTextureRect(sf::IntRect(0, 0, static_cast<int>(size.x) * repeat, static_cast<int>(size.y) * repeat));
 

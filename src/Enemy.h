@@ -16,18 +16,16 @@ public :
 
 	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	virtual void setupInstance(const std::string& label, const sf::Vector2f& position);
-	void trySpawnProjectiles(const sf::Time& elapsedTime, sf::Vector2f playerPos, std::vector<std::shared_ptr<Projectile>>& projectiles);
+	void trySpawnProjectiles(const sf::Time& elapsedTime, std::vector<std::shared_ptr<Projectile>>& projectiles);
 
 
-protected:
-
-
+protected: //A éviter :'(
 	float speed = 10;
 	float distance = 100;
 
 private:
 	std::vector<SpellCard> _spellcards;
-	float _currentSpellTime;
+	float _currentSpellTime = 0.0f;
 
 
 };

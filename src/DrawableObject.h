@@ -28,7 +28,7 @@ public:
 private:
 	std::string _label;
 	std::shared_ptr<sf::Texture> _texture;
-protected: //PAS DE PROTECTED OMG
+protected: //A éviter la prochaine fois
 
 	sf::Vector2f _position;
 	sf::Vector2f _size;

@@ -49,5 +49,6 @@ private:
 	void purgeEnemies();
 
 	void render();
+	void damageEnemy(Enemy& enemy, Projectile& bullet) const;
 
 };
