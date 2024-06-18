@@ -2,16 +2,12 @@
 #include <Player.h>
 #include "SFML/Graphics.hpp"
 
-/*
-C:\Users\Maxime_Sansane\Desktop\BabyPiouPiou\unitTests\resources\sprites\chat.png
-													 ./resources/sprites/chat.png
-*/
 
 TEST(EmptyTest, UnitTest) {
 	EXPECT_EQ(true, true);
 }
 
-
+// on teste mouvements dans les 4 directions et le cas ou on ne bouge pas 
 TEST(PlayerMovement, test1) {
 	Player player;
 	player.setPosition({ 0.f, 0.f });
@@ -108,8 +104,59 @@ TEST(PlayerMovement, test5) {
 	EXPECT_EQ(player.getPosition().y, 0.f);
 }
 
+
+// on le blockage avec les bords de l'écran dans les 4 directions
+TEST(PlayerMovementBlocked, test1) {
+	Player player;
+	player.setPosition({ 0.f, 0.f });
+
+	player.handlePlayerInput(sf::Keyboard::Z, true);
+	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
+
+	EXPECT_EQ(player.getPosition().x, 0.f);
+	EXPECT_EQ(player.getPosition().y, 0.f);
+}
+
+TEST(PlayerMovementBlocked, test2) {
+	Player player;
+	player.setPosition({ 0.f, 400.f });
+
+	player.handlePlayerInput(sf::Keyboard::S, true);
+	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
+
+	EXPECT_EQ(player.getPosition().x, 0.f);
+	EXPECT_EQ(player.getPosition().y, 400.f);
+}
+
+TEST(PlayerMovementBlocked, test3) {
+	Player player;
+	player.setPosition({ 0.f,0.f });
+
+	player.handlePlayerInput(sf::Keyboard::Q, true);
+	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
+
+	EXPECT_EQ(player.getPosition().x, 0.f);
+	EXPECT_EQ(player.getPosition().y, 0.f);
+}
+
+TEST(PlayerMovementBlocked, test4) {
+	Player player;
+	player.setPosition({ 400.f,0.f });
+
+	player.handlePlayerInput(sf::Keyboard::Q, true);
+	sf::Time deltaTime = sf::Time(sf::microseconds(1000));
+	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
+
+	EXPECT_EQ(player.getPosition().x, 399.9f);
+	EXPECT_EQ(player.getPosition().y, 0.f);
+}
+
+// teste du systeme de degat
 TEST(HealthSystem, test1) {
-	HpLiving hp("test",{100, 100}, 10, "chat.png");
+	HpLiving hp("test", { 100, 100 }, 10, "chat.png");
 	ASSERT_FALSE(hp.isDead());
 	ASSERT_EQ(hp.getHealth(), 10);
 	hp.damage(5);
@@ -119,3 +166,19 @@ TEST(HealthSystem, test1) {
 	ASSERT_TRUE(hp.isDead());
 
 }
+
+//test des colisions avec les balles
+TEST(BulletHit, test1) {
+	HpLiving hp("test", { 100, 100 }, 20, "chat.png");
+
+	ASSERT_FALSE(hp.takeHit({ 1000.f,1000.f }));
+	ASSERT_EQ(hp.getHealth(), 20);
+}
+
+TEST(BulletHit, test2) {
+	HpLiving hp("test", { 100, 100 }, 20, "chat.png");
+
+	ASSERT_TRUE(hp.takeHit(hp.getOffsetPosition()));
+	ASSERT_EQ(hp.getHealth(), 10);
+}
+
