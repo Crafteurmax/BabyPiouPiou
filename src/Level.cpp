@@ -38,7 +38,6 @@ Level::Level(const std::string& name) {
 void Level::loadPrefabs(const pugi::xml_node& prefabsNode)
 {
 	for (const auto& child : prefabsNode.children()) {
-		//TODO Implement multi enemy types
 		const std::string enemy_type = child.name();
 		if (enemy_type == "Drunk") {
 			_enemiesList.push_back(std::make_shared<Drunk>(child));

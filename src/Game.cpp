@@ -13,7 +13,7 @@ Game::Game()
 
 	// on centre le message de gameover
 	gameoverText.setOrigin(gameoverText.getGlobalBounds().getSize() / 2.f + gameoverText.getLocalBounds().getPosition());
-	gameoverText.setPosition(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
+	gameoverText.setPosition(static_cast<float>(WINDOW_WIDTH) / 2, static_cast<float>(WINDOW_HEIGHT) / 2);
 }
 
 void Game::run()

@@ -9,11 +9,10 @@
 float CoolMath::Q_rsqrt(float number)
 {
 	long i;
-	float x2, y;
 	const float threehalfs = 1.5F;
 
-	x2 = number * 0.5F;
-	y = number;
+	float x2 = number * 0.5F;
+	float y = number;
 	i = *(long*)&y;                       // evil floating point bit level hacking
 	i = 0x5f3759df - (i >> 1);               // what ?
 	y = *(float*)&i;
@@ -38,7 +37,7 @@ int CoolMath::randomInt(int const nbMax)
 	
 	static std::random_device rd;
 	static std::default_random_engine engine(rd());
-	std::uniform_int_distribution<> distribution(1, nbMax);
+	std::uniform_int_distribution distribution(1, nbMax);
 	return distribution(engine);
 	
 	return 0;

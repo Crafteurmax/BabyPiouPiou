@@ -13,7 +13,6 @@ public:
 	~HpLiving() override = default;
 	bool isDead() const;
 	void damage(float amount);
-	void update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) override;
 	float getHealth() const;
 	bool takeHit(sf::Vector2f bulletPos);
 
