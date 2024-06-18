@@ -8,8 +8,8 @@
 #include "Level.h"
 
 
-constexpr int WINDOW_WIDTH = 1000;
-constexpr int WINDOW_HEIGHT = 800;
+constexpr int WINDOW_WIDTH = 1900;
+constexpr int WINDOW_HEIGHT = 1000;
 
 
 class Game {
