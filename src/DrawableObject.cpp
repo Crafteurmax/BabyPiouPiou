@@ -10,7 +10,7 @@ DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& siz
 	_texture = TextureList::getTexture(textureName);
 	if(repeat != 1) _sprite.setTextureRect(sf::IntRect(0, 0, static_cast<int>(size.x) * repeat, static_cast<int>(size.y) * repeat));
 
-	if (_texture != std::shared_ptr<sf::Texture>()) {
+	if (_texture != std::shared_ptr<sf::Texture>()) { //On vérifie que la texture a chargée
 		_sprite.setTexture(*_texture);
 		_sprite.setScale(size.x / static_cast<float>(_texture->getSize().x), size.y / static_cast<float>(_texture->getSize().y));
 		

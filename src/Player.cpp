@@ -5,7 +5,7 @@ Player::Player() :
 {
     _position = { 500.f, 500.f };
 }
-
+//Contrôles, déplacement
 void Player::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vector2f screenSize) {
     normalShootCooldown -= elapsedTime.asSeconds();
     sf::Vector2f movement(0.f, 0.f);
@@ -22,8 +22,8 @@ void Player::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf::Vec
     
     _position += movement * elapsedTime.asSeconds() * speed;
 
-    _position.x = std::clamp(_position.x, 0.f, screenSize.x - _size.x);
-    _position.y = std::clamp(_position.y, 0.f, screenSize.y - _size.y);
+    _position.x = std::clamp(_position.x, 0.f, screenSize.x - _size.x); //éviter les murs
+    _position.y = std::clamp(_position.y, 0.f, screenSize.y - _size.y); //éviter les murs
 
     _sprite.setPosition(_position);
 }

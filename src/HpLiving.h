@@ -5,6 +5,7 @@
 #include "pugixml.hpp"
 #include "CoolMath.h"
 
+//Ce qui a une barre de HP et qui est dessinable
 class HpLiving : public DrawableObject {
 public:
 	HpLiving(const HpLiving& other) = default;

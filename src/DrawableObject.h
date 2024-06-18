@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+//Objet pouvant être dessiné
 class DrawableObject {
 public:
 	DrawableObject(const DrawableObject& other) = default;

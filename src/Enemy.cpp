@@ -67,6 +67,7 @@ void Enemy::setupInstance(const std::string& label, const sf::Vector2f& position
 	_position = position;
 }
 
+//Spawn projectile
 void Enemy::trySpawnProjectiles(const sf::Time& elapsedTime, std::vector<std::shared_ptr<Projectile>>& projectiles)
 {
 
@@ -79,6 +80,7 @@ void Enemy::trySpawnProjectiles(const sf::Time& elapsedTime, std::vector<std::sh
 		std::cerr << "ALERT NO SPELL CARD FOR ENEMY : " << getLabel() << std::endl;
 	}
 
+	//Selection random d'un spell
 	auto randomIt = _spellcards.begin();
 	std::advance(randomIt, CoolMath::randomInt(static_cast<int>(_spellcards.size()))-1);
 
