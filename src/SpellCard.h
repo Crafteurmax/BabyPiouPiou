@@ -5,15 +5,16 @@
 #include "Projectile.h"
 
 #include <vector>
+#include <BulletRef.h>
 
 class SpellCard {
 public:
 	explicit SpellCard(pugi::xml_node node);
-	std::vector<std::unique_ptr<Projectile>> spawnSpell();
+	void spawnSpell(sf::Vector2f origin, std::vector<std::unique_ptr<Projectile>>& projectiles);
 	float getDelay();
 
 private:
-	std::vector<Projectile> _projectiles;
+	std::vector<BulletRef> _projectilesRef;
 	std::string _label;
 	float _delay;
 };

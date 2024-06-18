@@ -7,7 +7,7 @@ const sf::Time Game::TimePerFrame = sf::seconds(1.f / 60.f);
 
 Game::Game() 
 {
-	bullets.push_back(std::make_unique<Projectile>(Projectile(1000.f, ProjectileType::FROM_PLAYER, { 200.f,200.f }, { 5.f,10.f },{-2.f,0.f})));
+	//bullets.push_back(std::make_unique<Projectile>(Projectile(1000.f, ProjectileType::FROM_PLAYER, { 200.f,200.f }, { 5.f,10.f },{-2.f,0.f})));
 }
 
 void Game::run()
@@ -71,7 +71,12 @@ void Game::update(sf::Time deltaTime)
 
 	player.update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
 	bg.update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
-	for (const auto& enemy : _currentEnemies) enemy->update(deltaTime,player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT});
+	for (const auto& enemy : _currentEnemies)
+	{
+		enemy->update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
+
+		enemy->shoot(deltaTime, bullets);
+	}
 	for (const auto& bullet : bullets) bullet->update(deltaTime, player.getOffsetPosition(), { WINDOW_WIDTH, WINDOW_HEIGHT });
 }
 

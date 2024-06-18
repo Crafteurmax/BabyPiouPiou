@@ -21,3 +21,8 @@ void Projectile::update(const sf::Time& elapsedTime, sf::Vector2f playerPos, sf:
 	_position += vit * elapsedTime.asSeconds();
 	_sprite.setPosition(_position);
 }
+
+void Projectile::setupInstance(sf::Vector2f origin)
+{
+	_position += origin;
+}
