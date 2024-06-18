@@ -1,21 +1,13 @@
 #include "DrawableObject.h"
 #include <iostream>
 
-const std::string pathToSprite = "./resources/sprites/";
+#include "TextureList.h"
 
 DrawableObject::DrawableObject(const std::string& label, const sf::Vector2f& size, const std::string& textureName,
 	const sf::Vector2f pos, int repeat) : _label(label), _size(size)
 {
 	_position = pos;
-	_texture = std::make_shared<sf::Texture>();
-	//save texture as global because of this : https://www.sfml-dev.org/tutorials/2.6/graphics-sprite.php#the-white-square-problem
-	if (!_texture->loadFromFile(pathToSprite + textureName))
-	{
-		// handle error
-		std::cerr << "Texture not found : " << pathToSprite + textureName << std::endl;
-	}
-	_texture->setSmooth(true);
-	_texture->setRepeated(true);
+	_texture = TextureList::getTexture(textureName);
 	if(repeat != 1) _sprite.setTextureRect(sf::IntRect(0, 0, static_cast<int>(size.x) * repeat, static_cast<int>(size.y) * repeat));
 	_sprite.setTexture(*_texture);
 	_sprite.setScale(size.x / static_cast<float>(_texture->getSize().x), size.y / static_cast<float>(_texture->getSize().y));
