@@ -43,6 +43,15 @@ void Level::loadPrefabs(const pugi::xml_node& prefabsNode)
 		if (enemy_type == "Drunk") {
 			_enemiesList.push_back(std::make_shared<Drunk>(child));
 		}
+		else if (enemy_type == "Tank") {
+			_enemiesList.push_back(std::make_shared<Tank>(child));
+		}
+		else if (enemy_type == "Speeder") {
+			_enemiesList.push_back(std::make_shared<Speeder>(child));
+		}
+		else if (enemy_type == "Boss") {
+			_enemiesList.push_back(std::make_shared<Boss>(child));
+		}
 		
 		else {
 			_enemiesList.push_back(std::make_shared<Enemy>(child));

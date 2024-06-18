@@ -1,6 +1,6 @@
 #include "Tank.h"
 
-Tank::Tank(pugi::xml_node& node) :
+Tank::Tank(const pugi::xml_node& node) :
 	Enemy(node)
 {
 }

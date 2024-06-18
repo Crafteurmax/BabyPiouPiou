@@ -7,6 +7,9 @@
 #include "Enemy.h"
 #include "Wave.h"
 #include "Drunk.h"
+#include "Tank.h"
+#include "Boss.h"
+#include "Speeder.h"
 
 class Level {
 public:
