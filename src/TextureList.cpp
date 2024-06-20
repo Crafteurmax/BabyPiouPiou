@@ -11,9 +11,20 @@ std::shared_ptr<sf::Texture> TextureList::getTexture(const std::string& textureN
 
 	//Dans le cas de multithread, il faudrait faire attention ici, mais c'est pas notre cas
 	if (const auto textureIterator = _textures.find(textureName); textureIterator != _textures.end()) {
-		return textureIterator->second.lock();
+		//--- Modifié avant la présentation
+		if (const auto& sharedPtr = textureIterator->second.lock()) {
+			
+			return sharedPtr;
+		}
+		_textures.erase(textureIterator);
+		//-- Modifié avant la présentation -- ANCIEN CODE
+		//return textureIterator->second.lock();
+
+		std::cout << "(Re)loading : " << textureName << std::endl;
 	}
 
+	std::cout << "Loading : " << textureName << std::endl;
+	
 	//NOT FOUND, LOAD THE TEXTURE
 
 	const auto texture = std::make_shared<sf::Texture>();
