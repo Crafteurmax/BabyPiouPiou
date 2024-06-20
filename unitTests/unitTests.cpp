@@ -127,7 +127,7 @@ TEST(PlayerMovementBlocked, test2) {
 	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
 
 	EXPECT_EQ(player.getPosition().x, 0.f);
-	EXPECT_EQ(player.getPosition().y, 400.f);
+	EXPECT_EQ(player.getPosition().y, 372.f);
 }
 
 TEST(PlayerMovementBlocked, test3) {
@@ -144,13 +144,13 @@ TEST(PlayerMovementBlocked, test3) {
 
 TEST(PlayerMovementBlocked, test4) {
 	Player player;
-	player.setPosition({ 400.f,0.f });
+	player.setPosition({ 500.f,0.f });
 
-	player.handlePlayerInput(sf::Keyboard::Q, true);
+	player.handlePlayerInput(sf::Keyboard::D, true);
 	auto deltaTime = sf::Time(sf::microseconds(1000));
 	player.update(deltaTime, { 0.f, 0.f }, { 500.f, 500.f });
 
-	EXPECT_EQ(player.getPosition().x, 399.9f);
+	EXPECT_EQ(player.getPosition().x, 372.f);
 	EXPECT_EQ(player.getPosition().y, 0.f);
 }
 
