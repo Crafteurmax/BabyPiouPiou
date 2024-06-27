@@ -8,10 +8,10 @@
 //Contient des références vers des enemis prêts à être instanciés
 class EnemyRef {
 public:
-	EnemyRef(const std::weak_ptr<Enemy>& prefab, const sf::Vector2f& position, const std::string& label);
+	EnemyRef(const Enemy* & prefab, const sf::Vector2f& position, const std::string& label);
 	std::unique_ptr<Enemy> spawn() const;
 private:
-	std::weak_ptr<Enemy> _enemyPrefab; //use lock !!!
+	const Enemy* _enemyPrefab; //use lock !!!
 	sf::Vector2f _position;
 	std::string _label;
 };

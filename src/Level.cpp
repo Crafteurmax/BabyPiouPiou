@@ -42,19 +42,19 @@ void Level::loadPrefabs(const pugi::xml_node& prefabsNode)
 
 		//Gérer en fonction du type d'enemi
 		if (enemy_type == "Drunk") {
-			_enemiesList.push_back(std::make_shared<Drunk>(child));
+			_enemiesList.push_back(std::make_unique<Drunk>(child));
 		}
 		else if (enemy_type == "Tank") {
-			_enemiesList.push_back(std::make_shared<Tank>(child));
+			_enemiesList.push_back(std::make_unique<Tank>(child));
 		}
 		else if (enemy_type == "Speeder") {
-			_enemiesList.push_back(std::make_shared<Speeder>(child));
+			_enemiesList.push_back(std::make_unique<Speeder>(child));
 		}
 		else if (enemy_type == "Boss") {
-			_enemiesList.push_back(std::make_shared<Boss>(child));
+			_enemiesList.push_back(std::make_unique<Boss>(child));
 		}
 		else {
-			_enemiesList.push_back(std::make_shared<Enemy>(child));
+			_enemiesList.push_back(std::make_unique<Enemy>(child));
 		}
 
 	}

@@ -125,7 +125,7 @@ void Game::damageEnemy(Enemy& enemy, Projectile& bullet) const {
 void Game::tryShoot()
 {
 	if (shoot && player.getCooldown() <= 0) {
-		bullets.push_back(std::make_shared<Projectile>(
+		bullets.push_back(std::make_unique<Projectile>(
 			Projectile(2.f, ProjectileType::FROM_PLAYER,
 				player.getOffsetPosition() + sf::Vector2f(-0.f, -1.f) * 50.f + sf::Vector2f(-16.f, 0.f), { 0.f,-400.f })));
 		player.resetCooldown();
@@ -134,11 +134,7 @@ void Game::tryShoot()
 
 void Game::purgeBullets()
 {
-	// purge bullets
-	std::vector<std::shared_ptr<Projectile>> filteredBullets;
-	std::ranges::copy_if(bullets.begin(), bullets.end(), std::back_inserter(filteredBullets),
-		[](std::shared_ptr<Projectile> bullet) {return !bullet->isDead(); });
-	bullets = filteredBullets;
+	std::erase_if(bullets, [](const auto& bullet) {return bullet->isDead(); });
 }
 
 void Game::purgeEnemies()

@@ -28,7 +28,7 @@ private:
 	Level _level{ "level0" };
 	bool _levelEnd = false;
 
-	std::vector<std::shared_ptr<Projectile>> bullets;
+	std::vector<std::unique_ptr<Projectile>> bullets;
 	std::vector<std::unique_ptr<Enemy>> _currentEnemies;
 
 	bool shoot = false;

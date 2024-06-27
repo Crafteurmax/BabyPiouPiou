@@ -24,7 +24,7 @@ public:
 
 	bool isDead() const;
 
-	std::shared_ptr<Projectile> clone() { return std::make_shared<Projectile>(*this);  };
+	std::unique_ptr<Projectile> clone() { return std::make_unique<Projectile>(*this);  };
 
 private:
 	ProjectileType _projectileType;

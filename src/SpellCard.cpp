@@ -9,7 +9,7 @@ SpellCard::SpellCard(pugi::xml_node node) : _label(node.attribute("label").as_st
 }
 
 //Générer les projectiles de la spellcards
-float SpellCard::spawnSpell(std::vector<std::shared_ptr<Projectile>>& currentProjectiles, const sf::Vector2f& refPos) const
+float SpellCard::spawnSpell(std::vector<std::unique_ptr<Projectile>>& currentProjectiles, const sf::Vector2f& refPos) const
 {
 	for (const auto& proj : _projectiles) {
 		auto projInstance = proj->clone();

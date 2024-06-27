@@ -2,11 +2,12 @@
 
 #include <iostream>
 
-EnemyRef::EnemyRef(const std::weak_ptr<Enemy>& prefab, const sf::Vector2f& position, const std::string& label) : _enemyPrefab(prefab), _position(position), _label(label) {};
+EnemyRef::EnemyRef(const Enemy* & prefab, const sf::Vector2f& position, const std::string& label) : _enemyPrefab(prefab), _position(position), _label(label) {};
 
 std::unique_ptr<Enemy> EnemyRef::spawn() const {
-	if (const auto enemyPref = _enemyPrefab.lock()) {
-		auto enemy = enemyPref->clone();
+	//Pas de multithreading donc ok
+	if (_enemyPrefab != nullptr) {
+		auto enemy = _enemyPrefab->clone();
 		enemy->setupInstance(_label, _position);
 		
 		return std::move(enemy);

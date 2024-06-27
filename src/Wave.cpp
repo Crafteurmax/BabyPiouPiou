@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-Wave::Wave(const pugi::xml_node& node, const std::vector<std::shared_ptr<Enemy>>& enemiesObjects) {
+Wave::Wave(const pugi::xml_node& node, const std::vector<std::unique_ptr<Enemy>>& enemiesObjects) {
 	for (const auto& child : node.children()) {
 		const auto label = child.attribute("label").as_string();
 		const auto pos = sf::Vector2f(child.attribute("pos_x").as_float(), child.attribute("pos_y").as_float());
@@ -10,7 +10,7 @@ Wave::Wave(const pugi::xml_node& node, const std::vector<std::shared_ptr<Enemy>>
 
 		for (const auto& enemy : enemiesObjects) {
 			if (std::string(ref) == enemy->getLabel()) {
-				const std::weak_ptr<Enemy> enemyPref = enemy;
+				const Enemy* enemyPref = enemy.get();
 				_enemiesRef.emplace_back(enemyPref, pos, label);
 				break;
 			}
